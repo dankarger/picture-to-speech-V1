@@ -1,9 +1,9 @@
-import {getPictureService} from "../services/picture.services";
+const pictureService = require('../services/picture.services');
 
 const getPicture = async (req, res) => {
     try {
-    const keyWords= req.query.keyWords
-        const picture = await getPictureService(keyWords)
+    const keyWords= req.query.query
+        const picture = await pictureService.getPictureService(keyWords)
         res.status(200).send(picture);
     }
     catch(e){
@@ -13,4 +13,4 @@ const getPicture = async (req, res) => {
 
 }
 
-module.exports = getPicture()
+module.exports = {getPicture}

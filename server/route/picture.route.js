@@ -1,8 +1,7 @@
 const express = require('express');
 const pictureRoute = express.Router();
-const weatherController = require('../controller/weather.controller')
+const pictureController = require('../controller/picture.controller')
 
-pictureRoute().get('/picture',weatherController.getWeather)
-weatherRoute.get('/search',weatherController.getAutoComplete)
+pictureRoute.get('/picture', pictureController.getPicture)
 
-module.exports = weatherRoute;
+module.exports = pictureRoute;

@@ -1,5 +1,8 @@
+// const Api = require('./Api/Api')
+// import Api from "./Api";
+// import myApi from "./api.js";
 const searchForm = document.querySelector("#search-form");
-const searchFormatInput = searchFormInput = searchForm.querySelector("input");
+const searchFormatInput  = searchForm.querySelector("input");
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
@@ -73,3 +76,35 @@ if (SpeechRecognition) {
 else {
     console.log("browser dont support")
 }
+
+const getPictureApi = async (query) => {
+    try {
+        const response = await fetch(`/api/picture?query=${query}`).get();
+        if (response.status === 200) {
+            // const word = response.data.split('');
+
+
+        } else {
+        }
+    } catch (e) {
+        console.log(e)
+    }
+}
+const getImageSecondOption =()=> {
+
+
+const myRequest = new Request('flowers.jpg');
+const myImage = document.querySelector('img')
+fetch(myRequest)
+    .then((response) => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        return response.blob();
+    })
+    .then((response) => {
+        myImage.src = URL.createObjectURL(response);
+    });
+}
+
