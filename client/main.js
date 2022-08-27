@@ -1,6 +1,13 @@
-// const Api = require('./Api/Api')
+// const Api = require('./api')
+// import { createClient } from '../node_modules/pexels';
+// import { createClient } from '../pexels';
+
 // import Api from "./Api";
 // import myApi from "./api.js";
+import path from 'path'
+// require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
+import dotenv from './dotenv'
+dotenv.config({ path: path.resolve(__dirname, '../.env') })
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput  = searchForm.querySelector("input");
 
@@ -59,6 +66,7 @@ if (SpeechRecognition) {
         else {
             if(transcript.toLowerCase().trim()==='go') {
                 searchForm.action = `https://unsplash.com/s/photos/${transcript}`
+                getImageSecondOption(transcript)
                 searchForm.submit()
             }
             else if(transcript.toLowerCase().trim()==='reset input') {
@@ -79,7 +87,7 @@ else {
 
 const getPictureApi = async (query) => {
     try {
-        const response = await fetch(`/api/picture?query=${query}`).get();
+        const response = await fetch(`/api/picture?query=${query}`);
         if (response.status === 200) {
             // const word = response.data.split('');
 
@@ -90,10 +98,20 @@ const getPictureApi = async (query) => {
         console.log(e)
     }
 }
-const getImageSecondOption =()=> {
+const getImageSecondOption =(query)=> {
 
+    const myHeaders = new Headers();
+    myHeaders.append('Accept', 'image/jpeg');
+    myHeaders.append('Authorization', process.env.API_KEY);
 
-const myRequest = new Request('flowers.jpg');
+    const myInit = {
+        method: 'GET',
+        headers: myHeaders,
+        mode: 'cors',
+        cache: 'default',
+    };
+const myRequest = new Request(query);
+myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
 const myImage = document.querySelector('img')
 fetch(myRequest)
     .then((response) => {
@@ -107,4 +125,7 @@ fetch(myRequest)
         myImage.src = URL.createObjectURL(response);
     });
 }
+
+
+// const client = createClient(process.env.API_KEY);
 
