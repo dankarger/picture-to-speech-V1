@@ -2,7 +2,7 @@
   "name": "speech_to_picture-v1",
   "version": "1.0.0",
   "description": "",
-  "main": "client/main.js",
+  "main": "clientVanilla/main.js",
   "scripts": {
     "start": "node server/app.js",
     "start-server-dev": "nodemon server/app.js"

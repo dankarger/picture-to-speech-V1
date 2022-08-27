@@ -127,5 +127,5 @@ fetch(myRequest)
 }
 
 
-// const client = createClient(process.env.API_KEY);
+// const clientVanilla = createClient(process.env.API_KEY);
 
