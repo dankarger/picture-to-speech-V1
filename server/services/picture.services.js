@@ -12,12 +12,14 @@ const getPictureService = async (keyWords) => {
         ,
         params: {query: keyWords},
         headers: {
-            "Authorization":process.env.API_KEY
+            "Authorization":process.env.API_KEY,
+            "Access-Control-Allow-Origin": "*"
 
         }
     };
     return axios.request(options).then(function (response) {
-        console.log('hello',response.data.photos[0].url)
+        console.log('hello',response.data.photos[0].src.medium)
+
         return response.data.photos[0]
     }).catch(function (error) {
         console.error(error);

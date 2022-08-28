@@ -106,6 +106,7 @@ const getImageSecondOption =(query)=> {
     const myHeaders = new Headers();
     // myHeaders.append('Accept', '*/*');
     myHeaders.append('Content-Type','application/json')
+    myHeaders.append('Access-Control-Allow-Origin', '*')
     // myHeaders.append('Authorization', process.env.API_KEY);
 
     const myInit = {
@@ -132,7 +133,7 @@ fetch(myRequest)
         console.log('3333',response)
         const image2 = document.createElement('img')
         // image2.src = URL.createObjectURL(response);
-        image2.src = response.url
+        image2.src = response.src.medium
         img2Div.append(image2)
 
 
