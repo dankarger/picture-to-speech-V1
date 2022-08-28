@@ -6,9 +6,9 @@ const  app = express();
 const PORT = process.env.PORT || 8080 ;
 const pictureRoute = require('./route/picture.route')
 
-let publicPath = path.join(__dirname, '../build')
+let publicPath = path.join(__dirname, '../clientVanilla/')
 if(PORT===8080){
-    publicPath = path.join(__dirname, '../clientVanilla')
+    publicPath = path.join(__dirname, '../clientVanilla/')
 }
 app.use(express.static(publicPath));
 app.use(express.json());

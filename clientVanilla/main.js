@@ -4,10 +4,10 @@
 
 // import Api from "./Api";
 // import myApi from "./api.js";
-import path from 'path'
+// import path from 'path'
 // require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-import dotenv from './dotenv'
-dotenv.config({ path: path.resolve(__dirname, '../.env') })
+// import dotenv from './dotenv'
+// dotenv.config({ path: path.resolve(__dirname, '../.env') })
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput  = searchForm.querySelector("input");
 
@@ -65,9 +65,11 @@ if (SpeechRecognition) {
         }
         else {
             if(transcript.toLowerCase().trim()==='go') {
-                searchForm.action = `https://unsplash.com/s/photos/${transcript}`
+
+                // searchForm.action = `http://localhost:8080/api/picture?query=${transcript}`
+
                 getImageSecondOption(transcript)
-                searchForm.submit()
+                // searchForm.submit()
             }
             else if(transcript.toLowerCase().trim()==='reset input') {
                 searchFormatInput.value = '';
@@ -76,9 +78,10 @@ if (SpeechRecognition) {
                 searchFormatInput.value = transcript
             }
         }
-        // setTimeout(()=>{
-        //     searchForm.submit();
-        // },750)
+        setTimeout(()=>{
+            getImageSecondOption(transcript)
+            // searchForm.submit();
+        },750)
     }
 }
 else {
@@ -99,10 +102,10 @@ const getPictureApi = async (query) => {
     }
 }
 const getImageSecondOption =(query)=> {
-
+    console.log('2')
     const myHeaders = new Headers();
-    myHeaders.append('Accept', 'image/jpeg');
-    myHeaders.append('Authorization', process.env.API_KEY);
+    myHeaders.append('Accept', '*/*');
+    // myHeaders.append('Authorization', process.env.API_KEY);
 
     const myInit = {
         method: 'GET',
@@ -110,19 +113,28 @@ const getImageSecondOption =(query)=> {
         mode: 'cors',
         cache: 'default',
     };
-const myRequest = new Request(query);
-myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
+const myRequest = new Request(`http://localhost:8080/api/picture?query=${query}`);
+// myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
+//     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
+
 const myImage = document.querySelector('img')
+    const img2Div = document.querySelector('#image-div')
 fetch(myRequest)
     .then((response) => {
         if (!response.ok) {
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
 
-        return response.blob();
-    })
+        return response;
+    }).then(res=>res.json())
     .then((response) => {
-        myImage.src = URL.createObjectURL(response);
+        console.log('3333',response)
+        const image2 = document.createElement('img')
+        // image2.src = URL.createObjectURL(response);
+        image2.src = response.url
+        img2Div.append(image2)
+
+
     });
 }
 

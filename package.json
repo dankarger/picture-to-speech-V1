@@ -5,7 +5,11 @@
   "main": "clientVanilla/main.js",
   "scripts": {
     "start": "node server/app.js",
-    "start-server-dev": "nodemon server/app.js"
+    "start-server-dev": "nodemon server/app.js",
+    "start-react-dev": "npm run start --prefix client",
+    "build-react": "npm run build --prefix client",
+    "dev": "concurrently \"npm run start-server-dev\" \"npm run start-react-dev\"",
+    "heroku-postbuild": "npm install --prefix client && npm run build-react"
   },
   "keywords": [],
   "author": "",
