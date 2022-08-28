@@ -1,3 +1,10 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    gap:1rem;
+    align-items: center;
+    flex-direction: column;
+}
 #image-div {
     display: flex;
     justify-content: center;
@@ -12,6 +19,10 @@
 }
 
 .container-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     padding: 1rem;
     border: 1px solid grey;
     border-radius: 10px;

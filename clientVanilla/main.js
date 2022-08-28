@@ -3,11 +3,14 @@
 // import { createClient } from '../pexels';
 
 // import Api from "./Api";
+// import hello from "./api";
 // import myApi from "./api.js";
 // import path from 'path'
 // require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 // import dotenv from './dotenv'
 // dotenv.config({ path: path.resolve(__dirname, '../.env') })
+// import html2canvas from '/html2canvas';
+// const hello = require("./api");
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput  = searchForm.querySelector("input");
 
@@ -51,12 +54,11 @@ if (SpeechRecognition) {
     }
 
     recognition.addEventListener("result",resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
-    function resultOfSpeechRecognition(event){
-        console.log(event);
+    function resultOfSpeechRecognition(event, stage= 1){
+        console.log('event',event, stage);
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript
         // searchFormatInput.value = transcript;
-
         if(transcript.toLowerCase().trim()==='stop recording') {
             recognition.stop()
         }
@@ -79,7 +81,9 @@ if (SpeechRecognition) {
             }
         }
         setTimeout(()=>{
-            getImageSecondOption(transcript)
+            if(stage===1) getImageSecondOption(transcript,stage++)
+
+            else if(stage===2) console.log('phase2')
             // searchForm.submit();
         },750)
     }
@@ -101,50 +105,57 @@ const getPictureApi = async (query) => {
         console.log(e)
     }
 }
-const getImageSecondOption =(query)=> {
-    console.log('2')
-    const myHeaders = new Headers();
-    // myHeaders.append('Accept', '*/*');
-    myHeaders.append('Content-Type','application/json')
-    // myHeaders.append('Access-Control-Allow-Origin', '*')
-    // myHeaders.append('Authorization', process.env.API_KEY);
 
-    const myInit = {
-        method: 'GET',
-        headers: myHeaders,
-        mode: 'cors',
-        cache: 'default',
-    };
-const myRequest = new Request(`http://localhost:8080/api/picture?query=${query}`);
-// myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
-//     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
-
-const myImage = document.querySelector('img')
-    const img2Div = document.querySelector('#image-div')
-fetch(myRequest)
-    .then((response) => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-
-        return response;
-    }).then((res)=>res.json())
-    .then((response) => {
-        console.log('3333',response)
-        const container = document.createElement('div');
-        container.classList.add('container-img')
-        const image2 = document.createElement('img');
-        const title = document.createElement('h3');
-        title.innerText = query
-        // image2.src = URL.createObjectURL(response);
-        image2.src = response.src.medium;
-
-        container.append(image2)
-        container.append(title)
-        img2Div.append(container)
-
-    });
-}
+// const getImageSecondOption =(query)=> {
+//     console.log('2')
+//     const myHeaders = new Headers();
+//     // myHeaders.append('Accept', '*/*');
+//     myHeaders.append('Content-Type','application/json')
+//     // myHeaders.append('Access-Control-Allow-Origin', '*')
+//     // myHeaders.append('Authorization', process.env.API_KEY);
+//
+//     const myInit = {
+//         method: 'GET',
+//         headers: myHeaders,
+//         mode: 'cors',
+//         cache: 'default',
+//     };
+// const myRequest = new Request(`http://localhost:8080/api/picture?query=${query}`);
+// // myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
+// //     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
+// hello()
+// const myImage = document.querySelector('img')
+//     const img2Div = document.querySelector('#image-div')
+// fetch(myRequest)
+//     .then((response) => {
+//         if (!response.ok) {
+//             throw new Error(`HTTP error! Status: ${response.status}`);
+//         }
+//
+//         return response;
+//     }).then((res)=>res.json())
+//     .then((response) => {
+//         console.log('3333',response)
+//         const container = document.createElement('div');
+//         container.classList.add('container-img')
+//         const image2 = document.createElement('img');
+//         const title = document.createElement('h3');
+//         title.innerText = query
+//         // image2.src = URL.createObjectURL(response);
+//         if(response.src.medium) {
+//             image2.src = response.src.medium;
+//
+//             container.append(image2)
+//             container.append(title)
+//         }
+//         else {
+//             title.innerText = "Error - please repeat";
+//             container.append(title)
+//         }
+//         img2Div.append(container)
+//
+//     });
+// }
 
 
 // const clientVanilla = createClient(process.env.API_KEY);
