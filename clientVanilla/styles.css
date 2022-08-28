@@ -9,13 +9,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .mic-on{
-    background-color: green;
+    background-color: #be0925;
+    /*animation: blinking 1s 1s infinite ease ;*/
+    padding:10px 20px;
+    border-radius: 10px;
 }
 .mic-off{
-    background-color: grey;
+    background-color: #b6adad;
+    padding:10px 20px;
+    border-radius: 10px;
 }
 
 .container-img {
@@ -28,4 +34,22 @@
     border-radius: 10px;
     width:fit-content;
 
+}
+.text {
+    font-size: 40px;
+    color: yellow;
+}
+
+#text-div {
+    position: absolute;
+    top:10%;
+}
+
+@keyframes blinking {
+from {
+    background-color: #ad4040;
+}
+    to {
+    background-color: #be0925;
+    }
 }

@@ -17,9 +17,9 @@ const getPictureService = async (keyWords) => {
         }
     };
     return axios.request(options).then(function (response) {
-        console.log('hello',response.data.photos[0].src.medium)
+        console.log('hello',response.data.photos)
 
-        return response.data.photos[0]
+        return response.data.photos
     }).catch(function (error) {
         console.error(error);
     });

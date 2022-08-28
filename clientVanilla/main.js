@@ -91,6 +91,8 @@ const activateStage = (transcript) => {
         stage++;
     } else if (stage === 2) {
         console.log('phase2')
+        textGenerator(transcript)
+        console.log('texxxxt:',transcript)
         stage++
     } else if (stage === 3) {
         console.log('phase3')

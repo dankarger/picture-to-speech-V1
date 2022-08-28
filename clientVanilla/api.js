@@ -34,7 +34,7 @@ const getImageSecondOption = (query) => {
     const myRequest = new Request(`http://localhost:8080/api/picture?query=${query}`);
 // myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
 //     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
-    hello()
+
     const myImage = document.querySelector('img')
     const img2Div = document.querySelector('#image-div')
     fetch(myRequest)
@@ -52,8 +52,8 @@ const getImageSecondOption = (query) => {
             const title = document.createElement('h3');
             title.innerText = query
             // image2.src = URL.createObjectURL(response);
-            if (response.src.medium) {
-                image2.src = response.src.medium;
+            if (response[0].src.medium) {
+                image2.src = response[0].src.medium;
 
                 container.append(image2)
                 container.append(title)
