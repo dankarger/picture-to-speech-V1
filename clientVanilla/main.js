@@ -1,102 +1,102 @@
-// const Api = require('./api')
-// import { createClient } from '../node_modules/pexels';
-// import { createClient } from '../pexels';
-
-// import Api from "./Api";
-// import hello from "./api";
-// import myApi from "./api.js";
-// import path from 'path'
-// require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
-// import dotenv from './dotenv'
-// dotenv.config({ path: path.resolve(__dirname, '../.env') })
-// import html2canvas from '/html2canvas';
-// const hello = require("./api");
 const searchForm = document.querySelector("#search-form");
-const searchFormatInput  = searchForm.querySelector("input");
-
+const searchFormatInput = searchForm.querySelector("input");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
 let stage = 1
 if (SpeechRecognition) {
     console.log("browser support");
-
-    searchForm.insertAdjacentHTML("beforeend",'          <button type="button" class="icon mic-off">MIC ICON</button>\n')
+    searchForm.insertAdjacentHTML("beforeend", '          <button type="button" class="icon mic-off">MIC ICON</button>\n')
     const micBtn = searchForm.querySelector("button");
     const micIcon = searchForm.querySelector(".icon");
 
     const recognition = new SpeechRecognition();
-    recognition.continuous = true ;
+    recognition.continuous = true;
     // recognition.lang = "he"
 
-    console.log('lng',SpeechRecognition.lang)
-    micBtn.addEventListener('click',micBtnClick);
+    console.log('lng', SpeechRecognition.lang)
+    micBtn.addEventListener('click', micBtnClick);
+
     function micBtnClick() {
-        if(micIcon.classList.contains('mic-off')){
+        if (micIcon.classList.contains('mic-off')) {
             recognition.start();
-        }
-        else {
+        } else {
 
             recognition.stop();
         }
     }
+
     recognition.addEventListener("start", startSpeechRecognition);// <=> recognition.onstart = function(){...}
-    function startSpeechRecognition(){
+    function startSpeechRecognition() {
         micIcon.classList.remove('mic-off');
         micIcon.classList.add('mic-on');
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
     }
+
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
-    function endSpeechRecognition(){
+    function endSpeechRecognition() {
         micIcon.classList.remove('mic-on');
         micIcon.classList.add('mic-off');
         searchFormatInput.focus();
         console.log("Speech Recognition Disconnected")
     }
 
-    recognition.addEventListener("result",resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
-    function resultOfSpeechRecognition(event){
+    recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
+    function resultOfSpeechRecognition(event) {
 
-        console.log('event',event, stage);
+        console.log('event', event, stage);
 
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript
         // searchFormatInput.value = transcript;
-        if(transcript.toLowerCase().trim()==='stop recording') {
+        if (transcript.toLowerCase().trim() === 'stop recording') {
             recognition.stop()
-        }
-        else if(!searchFormatInput.value) {
+        } else if (!searchFormatInput.value) {
             searchFormatInput.value = transcript
         }
-        else {
-            if(transcript.toLowerCase().trim()==='go') {
-
-                // searchForm.action = `http://localhost:8080/api/picture?query=${transcript}`
-
-                getImageSecondOption(transcript)
-                // searchForm.submit()
-            }
-            else if(transcript.toLowerCase().trim()==='reset input') {
-                searchFormatInput.value = '';
-            }
-            else {
-                searchFormatInput.value = transcript
-            }
-        }
-        setTimeout(()=>{
-
-            if(stage===1) {
-                stage++
-                getImageSecondOption(transcript)
-            }
-            else if(stage===2) console.log('phase2')
+        // else {
+        //     if (transcript.toLowerCase().trim() === 'go back') {
+        //         // searchForm.action = `http://localhost:8080/api/picture?query=${transcript}`
+        //         // getImageSecondOption(transcript)
+        //         // console.log('go back')
+        //         // stage--;
+        //         // searchFormatInput.value = '';
+        //
+        //     } else if (transcript.toLowerCase().trim() === 'reset input') {
+        //         searchFormatInput.value = '';
+        //     }
+        //     else {
+        //         searchFormatInput.value = transcript
+        //     }
+        // }
+        setTimeout(() => {
+            activateStage(transcript)
             // searchForm.submit();
-        },750)
+        }, 550)
     }
-}
-else {
+} else {
     console.log("browser dont support")
 }
+
+
+const activateStage = (transcript) => {
+    if (transcript === ' go back') {
+        console.log('gooogogoback1',stage)
+        stage > 1? stage--: stage=1
+        console.log('gooogogoback2',stage)
+        return
+    }
+    if (stage === 1) {
+        getImageSecondOption(transcript);
+        stage++;
+    } else if (stage === 2) {
+        console.log('phase2')
+        stage++
+    } else if (stage === 3) {
+        console.log('phase3')
+    }
+}
+
 
 const getPictureApi = async (query) => {
     try {
