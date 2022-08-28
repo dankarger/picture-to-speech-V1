@@ -6,6 +6,7 @@
     flex-direction: column;
 }
 #image-div {
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,13 +37,18 @@
 
 }
 .text {
-    font-size: 40px;
+    /*font-size: 40px;*/
     color: yellow;
+    text-align: center;
 }
 
 #text-div {
     position: absolute;
-    top:10%;
+    width:100%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: red solid 1px
+
 }
 
 @keyframes blinking {
