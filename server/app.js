@@ -6,9 +6,9 @@ const  app = express();
 const PORT = process.env.PORT || 8080 ;
 const pictureRoute = require('./route/picture.route')
 
-let publicPath = path.join(__dirname, '../clientVanilla/')
+let publicPath = path.join(__dirname, '../clientVanilla/dist')
 if(PORT===8080){
-    publicPath = path.join(__dirname, '../clientVanilla/')
+    publicPath = path.join(__dirname, '../clientVanilla/dist')
 }
 app.use(express.static(publicPath));
 app.use(express.json());
@@ -17,7 +17,7 @@ app.use('/api',pictureRoute)
 
 
 app.get('*', (req,res)=> {
-    res.sendFile(path.resolve(publicPath, 'index.html'));
+    res.sendFile(path.resolve(publicPath, 'template.html'));
 });
 
 

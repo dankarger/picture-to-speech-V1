@@ -1,7 +1,7 @@
 const textDiv = document.querySelector('#text-div');
 const textElement = textDiv.querySelector('.text');
 
-const textGenerator = (text) => {
+export const textGenerator = (text) => {
     textDiv.classList.add('position--top');
     const fontSize = (textDiv.clientWidth / text.length);
     // if(fontSize<100)
@@ -12,11 +12,11 @@ const textGenerator = (text) => {
     // textDiv.appendChild(textDiv)
 }
 
-const colorText = (color) => {
+export const colorText = (color) => {
     textElement.style.color = color;
 }
 
-const textPosition = (position) => {
+export const textPosition = (position) => {
     if (position === ' top' || position === 'stop' || position === 'up') {
         textDiv.classList.remove('position---center');
         textDiv.classList.remove('position---bottom');

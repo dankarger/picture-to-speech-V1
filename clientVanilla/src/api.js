@@ -12,9 +12,7 @@
 // export default axios.create({
 //     baseURL: myUrl
 // });
-const hello = () => {
-    console.log('hello')
-}
+
 // export default hello
 
 const getImageSecondOption = (query) => {
@@ -65,3 +63,5 @@ const getImageSecondOption = (query) => {
 
         });
 }
+
+export default getImageSecondOption

@@ -1,3 +1,9 @@
+import stagesDescriptionConstant from "./constants";
+import getImageSecondOption from "./api";
+import {colorText, textPosition, textGenerator} from "./textGenerator";
+import './styles/styles.scss'
+// import './styles/main.scss'
+
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput = searchForm.querySelector("input");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
