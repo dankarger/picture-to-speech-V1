@@ -6,8 +6,6 @@ const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
 const tryDiv = stageDiv.querySelector('.try')
 let stage = 1;
-stageCounter.textContent = stage
-
 
 if (SpeechRecognition) {
     console.log("browser support");
@@ -37,7 +35,8 @@ if (SpeechRecognition) {
         micIcon.classList.add('mic-on');
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
-        tryDiv.textContent = stagesDescriptionConstant[stage]
+        tryDiv.textContent = stagesDescriptionConstant[stage];
+        stageCounter.textContent = `${stage}) `;
     }
 
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
@@ -88,13 +87,9 @@ if (SpeechRecognition) {
 
 const activateStage = (transcript) => {
     if (transcript === ' go back') {
-        stageCounter.textContent = stage
-
-        console.log('gooogogoback1',stage)
-        stage > 1? stage--: stage=1
-        console.log('gooogogoback2',stage)
-        stageCounter.textContent = stage
-
+        // updateStageInformation();
+        stage > 1? stage-=2: stage = 1
+        updateStageInformation();
         return
     }
     if (stage === 1) {
@@ -106,16 +101,22 @@ const activateStage = (transcript) => {
         updateStageInformation();
     } else if (stage === 3) {
         console.log('phase3');
+        if(transcript===' continue'){
+            updateStageInformation();
+        }
         colorText(transcript);
-        updateStageInformation()
+    }
+    else if(stage===4){
+        console.log('stage4')
     }
 }
 
 
 const updateStageInformation = ()=>{
     console.log('g',stagesDescriptionConstant[stage])
-    stage< 3 ? stage++ : stage = 3;
+    stage< 4 ? stage++ : stage = 4;
     stageDescription.textContent = stagesDescriptionConstant[stage]
-    stageCounter.textContent = stage
+    stageCounter.textContent = `${stage}) `;
+
 }
 
