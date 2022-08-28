@@ -1,6 +1,20 @@
+#image-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .mic-on{
     background-color: green;
 }
 .mic-off{
     background-color: grey;
+}
+
+.container-img {
+    padding: 1rem;
+    border: 1px solid grey;
+    border-radius: 10px;
+    width:fit-content;
+
 }

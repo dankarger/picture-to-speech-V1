@@ -13,7 +13,6 @@ const getPictureService = async (keyWords) => {
         params: {query: keyWords},
         headers: {
             "Authorization":process.env.API_KEY,
-            "Access-Control-Allow-Origin": "*"
 
         }
     };

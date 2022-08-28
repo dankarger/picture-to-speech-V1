@@ -106,7 +106,7 @@ const getImageSecondOption =(query)=> {
     const myHeaders = new Headers();
     // myHeaders.append('Accept', '*/*');
     myHeaders.append('Content-Type','application/json')
-    myHeaders.append('Access-Control-Allow-Origin', '*')
+    // myHeaders.append('Access-Control-Allow-Origin', '*')
     // myHeaders.append('Authorization', process.env.API_KEY);
 
     const myInit = {
@@ -131,11 +131,17 @@ fetch(myRequest)
     }).then((res)=>res.json())
     .then((response) => {
         console.log('3333',response)
-        const image2 = document.createElement('img')
+        const container = document.createElement('div');
+        container.classList.add('container-img')
+        const image2 = document.createElement('img');
+        const title = document.createElement('h3');
+        title.innerText = query
         // image2.src = URL.createObjectURL(response);
-        image2.src = response.src.medium
-        img2Div.append(image2)
+        image2.src = response.src.medium;
 
+        container.append(image2)
+        container.append(title)
+        img2Div.append(container)
 
     });
 }
