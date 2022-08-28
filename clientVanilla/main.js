@@ -4,9 +4,11 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
-
+const tryDiv = stageDiv.querySelector('.try')
 let stage = 1;
 stageCounter.textContent = stage
+
+
 if (SpeechRecognition) {
     console.log("browser support");
     searchForm.insertAdjacentHTML("beforeend", '          <button type="button" class="icon mic-off">MIC ICON</button>\n')
@@ -35,6 +37,7 @@ if (SpeechRecognition) {
         micIcon.classList.add('mic-on');
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
+        tryDiv.textContent = stagesDescriptionConstant[stage]
     }
 
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
@@ -96,19 +99,24 @@ const activateStage = (transcript) => {
     }
     if (stage === 1) {
         getImageSecondOption(transcript);
-        stageDescription.textContent = stageDescription[stage]
+        console.log('g',stagesDescriptionConstant)
+
         stage++;
+        stageDescription.textContent = stagesDescriptionConstant[stage]
         stageCounter.textContent = stage
     } else if (stage === 2) {
         console.log('phase2')
         textGenerator(transcript)
         console.log('texxxxt:',transcript)
         stage++
+
+        stageDescription.textContent = stagesDescriptionConstant[stage]
         stageCounter.textContent = stage
-        stageDescription.textContent = stageDescription[stage]
     } else if (stage === 3) {
         console.log('phase3')
-        stageDescription.textContent = stageDescription[stage]
+        stageDescription.textContent = stagesDescriptionConstant[stage]
+        stageCounter.textContent = stage
+
 
     }
 }
