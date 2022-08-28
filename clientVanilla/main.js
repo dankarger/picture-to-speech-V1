@@ -6,6 +6,7 @@ const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
 const tryDiv = stageDiv.querySelector('.try');
 const recognitionText = document.querySelector('.recognition--text');
+// import  htm2canvas from '../node_modules/html2canvas'
 let stage = 1;
 
 if (SpeechRecognition) {
