@@ -16,6 +16,7 @@ const searchFormatInput  = searchForm.querySelector("input");
 
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 
+let stage = 1
 if (SpeechRecognition) {
     console.log("browser support");
 
@@ -54,8 +55,10 @@ if (SpeechRecognition) {
     }
 
     recognition.addEventListener("result",resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
-    function resultOfSpeechRecognition(event, stage= 1){
+    function resultOfSpeechRecognition(event){
+
         console.log('event',event, stage);
+
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript
         // searchFormatInput.value = transcript;
@@ -81,8 +84,11 @@ if (SpeechRecognition) {
             }
         }
         setTimeout(()=>{
-            if(stage===1) getImageSecondOption(transcript,stage++)
 
+            if(stage===1) {
+                stage++
+                getImageSecondOption(transcript)
+            }
             else if(stage===2) console.log('phase2')
             // searchForm.submit();
         },750)

@@ -46,7 +46,6 @@ const getImageSecondOption = (query) => {
             return response;
         }).then((res) => res.json())
         .then((response) => {
-            console.log('3333', response)
             const container = document.createElement('div');
             container.classList.add('container-img')
             const image2 = document.createElement('img');
