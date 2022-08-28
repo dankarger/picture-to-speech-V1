@@ -17,7 +17,7 @@ const colorText = (color) => {
 }
 
 const textPosition = (position) => {
-    if (position === ' top' || position === 'up') {
+    if (position === ' top' || position === 'stop' || position === 'up') {
         textDiv.classList.remove('position---center');
         textDiv.classList.remove('position---bottom');
         textDiv.classList.add('position--top');

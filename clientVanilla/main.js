@@ -4,7 +4,8 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
-const tryDiv = stageDiv.querySelector('.try')
+const tryDiv = stageDiv.querySelector('.try');
+const recognitionText = document.querySelector('.recognition--text');
 let stage = 1;
 
 if (SpeechRecognition) {
@@ -49,7 +50,8 @@ if (SpeechRecognition) {
 
     recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
     function resultOfSpeechRecognition(event) {
-
+        recognitionText.textContent = "";
+        recognitionText.classList.remove('.fade--out');
         console.log('event', event, stage);
 
         const currentResult = event.resultIndex
@@ -76,6 +78,8 @@ if (SpeechRecognition) {
         //     }
         // }
         setTimeout(() => {
+            recognitionText.textContent = transcript;
+            recognitionText.classList.add('.fade--out');
             activateStage(transcript)
             // searchForm.submit();
         }, 550)

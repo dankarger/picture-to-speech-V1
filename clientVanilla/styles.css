@@ -14,10 +14,11 @@
 }
 
 .mic-on{
-    background-color: #be0925;
+    /*background-color: #be0925;*/
     /*animation: blinking 1s 1s infinite ease ;*/
     padding:10px 20px;
     border-radius: 10px;
+    animation: 700ms infinite alternate blinking;
 }
 .mic-off{
     background-color: #b6adad;
@@ -40,6 +41,7 @@
     /*font-size: 40px;*/
     color: yellow;
     text-align: center;
+    text-shadow: 1px 1px #2f2b2b;
 }
 
 #text-div {
@@ -69,11 +71,32 @@
     top: 80%;
 }
 
+.recognition--text {
+    width: fit-content;
+    background-color: rgba(204, 198, 198, 0.78);
+
+}
+.fade--out {
+    opacity: 1;
+    /*animation: fadeOut 1s 100ms ease-in-out forwards;*/
+    /*animation-name: fadeOut;*/
+    /*animation-duration: 2s;*/
+    animation: 3s forwards alternate fadeOut;
+}
 @keyframes blinking {
-from {
-    background-color: #ad4040;
+    from{
+    background-color: #b6adad;
 }
     to {
     background-color: #be0925;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
     }
 }
