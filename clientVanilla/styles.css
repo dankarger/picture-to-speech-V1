@@ -46,7 +46,7 @@
     width: 100%;
     position: absolute;
     left: 50%;
-    top: 20%;
+    /*top: 20%;*/
     transform: translate(-50%,-50%);
     border: red solid 1px
 
@@ -58,6 +58,17 @@
     align-items: center;
     gap:10px;
 }
+
+.position--top {
+    top: 20%;
+}
+.position--center {
+    top: 50%;
+}
+.position--bottom {
+    top: 80%;
+}
+
 @keyframes blinking {
 from {
     background-color: #ad4040;

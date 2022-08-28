@@ -107,7 +107,9 @@ const activateStage = (transcript) => {
         colorText(transcript);
     }
     else if(stage===4){
-        console.log('stage4')
+        console.log('stage4', transcript)
+        textPosition(transcript.toLowerCase());
+        updateStageInformation();
     }
 }
 
