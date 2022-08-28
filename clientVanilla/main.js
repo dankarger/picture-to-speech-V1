@@ -104,7 +104,8 @@ const getPictureApi = async (query) => {
 const getImageSecondOption =(query)=> {
     console.log('2')
     const myHeaders = new Headers();
-    myHeaders.append('Accept', '*/*');
+    // myHeaders.append('Accept', '*/*');
+    myHeaders.append('Content-Type','application/json')
     // myHeaders.append('Authorization', process.env.API_KEY);
 
     const myInit = {
@@ -126,7 +127,7 @@ fetch(myRequest)
         }
 
         return response;
-    }).then(res=>res.json())
+    }).then((res)=>res.json())
     .then((response) => {
         console.log('3333',response)
         const image2 = document.createElement('img')
