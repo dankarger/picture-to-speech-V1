@@ -43,10 +43,11 @@
 }
 
 #text-div {
+    width: 100%;
     position: absolute;
-    width:100%;
     left: 50%;
-    transform: translate(-50%, 0);
+    top: 20%;
+    transform: translate(-50%,-50%);
     border: red solid 1px
 
 }

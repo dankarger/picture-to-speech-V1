@@ -1,8 +1,9 @@
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput = searchForm.querySelector("input");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
+const stageDescription = document.querySelector('#stage-description');
+let stage = 1;
 
-let stage = 1
 if (SpeechRecognition) {
     console.log("browser support");
     searchForm.insertAdjacentHTML("beforeend", '          <button type="button" class="icon mic-off">MIC ICON</button>\n')
@@ -88,14 +89,17 @@ const activateStage = (transcript) => {
     }
     if (stage === 1) {
         getImageSecondOption(transcript);
+        stageDescription.textContent = stageDescription[stage]
         stage++;
     } else if (stage === 2) {
         console.log('phase2')
         textGenerator(transcript)
         console.log('texxxxt:',transcript)
+        stageDescription.textContent = stageDescription[stage]
         stage++
     } else if (stage === 3) {
         console.log('phase3')
+        stageDescription.textContent = stageDescription[stage]
     }
 }
 

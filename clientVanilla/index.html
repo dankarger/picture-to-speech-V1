@@ -8,13 +8,17 @@
     <title>Speech1</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="constants.js" defer></script>
     <script src="textGenerator.js" defer ></script>
     <script src="api.js" defer ></script>
     <script  src="main.js"  defer></script>
 </head>
 <body>
 <div class="container">
-    <h2 class="stage-counter">1</h2>
+    <div class="stage-div">
+        <h2 class="stage-counter">1</h2>
+        <h3 id="stage-description">s</h3>
+    </div>
     <form action="" method="get"  id="search-form">
 <!--        <label for="firstInput">Speak or Type</label>-->
         <input id="firstInput"
