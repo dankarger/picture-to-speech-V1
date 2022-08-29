@@ -5,21 +5,24 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Speech1</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="constants.js" defer></script>
-    <script src="textGenerator.js" defer ></script>
-    <script src="api.js" defer ></script>
-    <script  src="main.js"  defer></script>
+    <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
 <div class="container">
+    <div class="commands-div">
+        <div class="info-screen">
+            <h3 id="commands "></h3>
+        </div>
+    </div>
+    <div class="container2">
+
+
     <div class="stage-div">
         <h2 class="stage-counter"></h2>
         <h3 class="try" id="stage-description">Press the Mic button to begin</h3>
         <h4 class="recognition--text"></h4>
     </div>
+
     <form action="" method="get"  id="search-form">
 <!--        <label for="firstInput">Speak or Type</label>-->
         <input id="firstInput"
@@ -37,7 +40,7 @@
             <h2 class="text"></h2>
         </div>
     </div>
-
+    </div>
 </div>
 </body>
 </html>
