@@ -139,5 +139,9 @@ const updateStageInformation = ()=>{
 }
 
 const updateUserInput =(input)=> {
-    userInputText.textContent = input
+    userInputText.classList.remove('fade-in');
+    userInputText.classList.add('fade-out');
+    userInputText.textContent = `user: ${input}`;
+    userInputText.classList.remove('fade-out');
+    userInputText.classList.add('fade-in')
 }

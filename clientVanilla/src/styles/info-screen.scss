@@ -1,0 +1,52 @@
+@import 'variables';
+
+.stage-div {
+  width:100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px;
+  border: 1px solid gray;
+  text-shadow: $text-shadow1;
+  color:$gray-color;
+  padding:50px 70px;
+}
+
+.info-screen {
+  width:100%;
+  height:100%;
+  min-width: 30vw;
+  min-height: 30vh;
+  //background: #2f2b2b;
+  border: 1px solid gray;
+  //color: wheat;
+  color:$gray-color;
+  border-radius:10px;
+  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: start;
+  align-items: flex-start;
+  flex-direction: column;
+  gap:10px;
+  padding:1rem;
+}
+
+.info-headings {
+  color: $white1-color;
+  text-decoration: underline;
+  text-shadow: $text-shadow1;
+  letter-spacing: 1px;
+  font-weight: 100;
+}
+
+.user-span {
+  text-decoration: underline;
+  color: $white1-color;
+}
+
+.recognition--text {
+  width: fit-content;
+  background-color: $gray-color;
+  letter-spacing: 1px;
+  color:$white1-color;
+}

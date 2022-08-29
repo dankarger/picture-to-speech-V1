@@ -23,13 +23,15 @@ export const textPosition = (position) => {
         textDiv.classList.add('fade-out');
         textDiv.classList.remove('position---center');
         textDiv.classList.remove('position---bottom');
+        textDiv.classList.remove('fade-out');
         textDiv.classList.add('fade-in')
         textDiv.classList.add('position--top');
-    }else if (position.toLowerCase()=== ' center' || position === 'middle') {
+    }else if (position.toLowerCase() === ' center' || position.toLowerCase() === 'middle') {
         textDiv.classList.remove('fade-in')
         textDiv.classList.add('fade-out');
         textDiv.classList.remove('position---top');
         textDiv.classList.remove('position---bottom');
+        textDiv.classList.remove('fade-out');
         textDiv.classList.add('fade-in')
         textDiv.classList.add('position--center');
     }
@@ -38,6 +40,7 @@ export const textPosition = (position) => {
         textDiv.classList.add('fade-out');
         textDiv.classList.remove('position---top');
         textDiv.classList.remove('position---center');
+        textDiv.classList.remove('fade-out');
         textDiv.classList.add('fade-in');
         textDiv.classList.add('position--bottom');
     }
