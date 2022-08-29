@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-$primary-color: #8aaec0;
-$secondary-color: #f4f4f4;
-$gray-color: rgba(204, 198, 198, 0.78);
-$box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-
-
+//@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+//
+//$primary-color: #8aaec0;
+//$secondary-color: #f4f4f4;
+//$gray-color: rgba(204, 198, 198, 0.78);
+//$box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+//
+@import 'variables', 'text';
 * {
     box-sizing: border-box;
 }

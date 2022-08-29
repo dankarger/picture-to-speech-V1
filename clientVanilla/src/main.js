@@ -12,6 +12,7 @@ const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
 const tryDiv = stageDiv.querySelector('.try');
 const recognitionText = document.querySelector('.recognition--text');
+const userInputText = document.querySelector('.user-input');
 // import  htm2canvas from '../node_modules/html2canvas'
 let stage = 1;
 
@@ -63,7 +64,8 @@ if (SpeechRecognition) {
         console.log('event', event, stage);
 
         const currentResult = event.resultIndex
-        const transcript = event.results[currentResult][0].transcript
+        const transcript = event.results[currentResult][0].transcript;
+        updateUserInput(transcript);
         // searchFormatInput.value = transcript;
         if (transcript.toLowerCase().trim() === 'stop recording') {
             recognition.stop()
@@ -136,3 +138,6 @@ const updateStageInformation = ()=>{
 
 }
 
+const updateUserInput =(input)=> {
+    userInputText.textContent = input
+}
