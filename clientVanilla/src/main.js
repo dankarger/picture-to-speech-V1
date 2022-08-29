@@ -92,7 +92,7 @@ if (SpeechRecognition) {
 
             activateStage(transcript)
             // searchForm.submit();
-        }, 550)
+        }, 50)
     }
 } else {
     console.log("browser dont support")
