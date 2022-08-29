@@ -20,6 +20,8 @@ console.log('2222222222222')
         document.body.appendChild(canvas);
         // console.log('res',response)
     });
+    const canvas2 = document.querySelector('canvas')
+    canvas2.appendChild(text)
 // return response
 
 }
