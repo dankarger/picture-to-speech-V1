@@ -16,7 +16,7 @@ const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
 const resultDiv  = document.querySelector('#image-div');
 // import  htm2canvas from '../node_modules/html2canvas'
-let stage = 1;
+let stage = 0;
 
 if (SpeechRecognition) {
     console.log("browser support");
@@ -47,7 +47,8 @@ if (SpeechRecognition) {
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
         tryDiv.textContent = stagesDescriptionConstant[stage];
-        stageCounter.textContent = `${stage}) `;
+        stageCounter.textContent = `${stage}) `
+        ;
     }
 
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
@@ -89,14 +90,14 @@ if (SpeechRecognition) {
         //         searchFormatInput.value = transcript
         //     }
         // }
-        setTimeout(() => {
+        // setTimeout(() => {
             recognitionText.textContent = transcript;
             recognitionText.classList.remove('fade-in')
             recognitionText.classList.add('.fade-out');
 
             activateStage(transcript)
             // searchForm.submit();
-        }, 10)
+        // }, 10)
     }
 } else {
     console.log("browser dont support")
@@ -110,13 +111,20 @@ const activateStage = async (transcript) => {
         updateStageInformation();
         return
     }
-    if (stage === 1) {
-        getImageSecondOption(transcript);
+    if (stage ===0) {
+        getImageSecondOption(transcript,true);
+        stage=2
+    }
+    else if (stage === 1) {
+        getImageSecondOption(transcript,false);
         updateStageInformation();
     } else if (stage === 2) {
         console.log('phase2');
         textGenerator(transcript);
-        stage=1
+        await convertHtmlToCanvas();
+        getImageSecondOption(transcript,false);
+        stage = 1
+        // getImageSecondOption(transcript, false);
         // updateStageInformation();
     }
 }
@@ -124,7 +132,7 @@ const activateStage = async (transcript) => {
 
 const updateStageInformation = ()=>{
     console.log('g',stagesDescriptionConstant[stage])
-    stage< 4 ? stage++ : stage = 4;
+    stage< 2 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage]
     stageCounter.textContent = `${stage}) `;
 

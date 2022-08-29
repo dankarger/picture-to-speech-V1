@@ -14,9 +14,15 @@
 // });
 
 // export default hello
+const subjects = ['sea','animals','people','cat','nature','city','fiction','transportation','birds','Group of people working','factory']
 
-const getImageSecondOption = (query) => {
+const getImageSecondOption = (query, isRandom) => {
+    let queryResult = query
     console.log('2')
+    if(isRandom===true) {
+        const randomIndex = Math.floor(Math.random()*subjects.length)
+        queryResult= subjects[randomIndex]
+    }
     const myHeaders = new Headers();
     // myHeaders.append('Accept', '*/*');
     myHeaders.append('Content-Type', 'application/json')
@@ -29,7 +35,7 @@ const getImageSecondOption = (query) => {
         mode: 'cors',
         cache: 'default',
     };
-    const myRequest = new Request(`http://localhost:8080/api/picture?query=${query}`);
+    const myRequest = new Request(`http://localhost:8080/api/picture?query=${queryResult}`);
 // myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
 //     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
 
