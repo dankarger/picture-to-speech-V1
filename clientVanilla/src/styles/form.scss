@@ -1,0 +1,36 @@
+@import 'variables';
+
+#search-form {
+  width:30%;
+  height:100%;
+  display: flex;
+  justify-content: start;
+  align-items: start;
+  flex-direction: column;
+  padding:10px;
+  gap:2%;
+}
+
+#firstInput {
+  position: relative;
+  z-index: 1000;
+}
+
+
+button {
+  position: relative;
+  z-index: 2000;
+}
+
+.mic-on{
+  /*background-color: #be0925;*/
+  /*animation: blinking 1s 1s infinite ease ;*/
+  padding:10px 20px;
+  border-radius: 10px;
+  animation: 700ms infinite alternate blinking;
+}
+.mic-off{
+  background-color:$gray-color;
+  padding:10px 20px;
+  border-radius: 10px;
+}

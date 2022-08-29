@@ -5,7 +5,7 @@
 //$gray-color: rgba(204, 198, 198, 0.78);
 //$box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
 //
-@import 'variables', 'text', 'info-screen';
+@import 'variables', 'text', 'info-screen', 'form';
 * {
     box-sizing: border-box;
 }
@@ -32,7 +32,7 @@ h1,h2,h3,p {
 
 .container {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     gap:1rem;
     align-items: flex-start;
     //flex-direction: column;
@@ -52,10 +52,7 @@ h1,h2,h3,p {
     flex-direction: column;
 
 }
-#firstInput {
-    position: relative;
-    z-index: 1000;
-}
+
 #image-div {
     width: fit-content;
     display: flex;
@@ -64,23 +61,6 @@ h1,h2,h3,p {
     position: relative;
 }
 
-button {
-    position: relative;
-    z-index: 2000;
-}
-
-.mic-on{
-    /*background-color: #be0925;*/
-    /*animation: blinking 1s 1s infinite ease ;*/
-    padding:10px 20px;
-    border-radius: 10px;
-    animation: 700ms infinite alternate blinking;
-}
-.mic-off{
-    background-color:$gray-color;
-    padding:10px 20px;
-    border-radius: 10px;
-}
 
 .container-img {
     display: flex;

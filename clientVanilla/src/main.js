@@ -1,8 +1,9 @@
 import stagesDescriptionConstant from "./constants";
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
+import convertHtmlToCanvas from "./exporting";
 import './styles/styles.scss'
-// import './styles/main.scss'
+
 
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput = searchForm.querySelector("input");
@@ -13,6 +14,7 @@ const stageCounter = stageDiv.querySelector('.stage-counter');
 const tryDiv = stageDiv.querySelector('.try');
 const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
+const resultDiv  = document.querySelector('#image-div');
 // import  htm2canvas from '../node_modules/html2canvas'
 let stage = 1;
 
@@ -101,7 +103,7 @@ if (SpeechRecognition) {
 }
 
 
-const activateStage = (transcript) => {
+const activateStage = async (transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
@@ -126,6 +128,15 @@ const activateStage = (transcript) => {
         console.log('stage4', transcript)
         textPosition(transcript.toLowerCase());
         updateStageInformation();
+        if(transcript==='download'|| transcript===' download') {
+            console.log('dddddddddd1')
+            const mergedImage = convertHtmlToCanvas();
+            const newImage = document.createElement('img');
+            newImage.src = await mergedImage;
+            resultDiv.appendChild(newImage);
+
+
+        }
     }
 }
 
