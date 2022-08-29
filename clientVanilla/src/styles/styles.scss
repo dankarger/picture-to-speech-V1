@@ -30,7 +30,7 @@ body {
     gap:1rem;
     align-items: center;
     flex-direction: column;
-    background-color: $secondary-color;
+
 }
 #image-div {
     width: fit-content;
@@ -62,7 +62,10 @@ body {
     border: 1px solid grey;
     border-radius: 10px;
     width:fit-content;
-
+    background-color: $secondary-color;
+    img {
+        border: 2px solid gray;
+    }
 }
 .text {
     /*font-size: 40px;*/
@@ -103,12 +106,16 @@ body {
     background-color: rgba(204, 198, 198, 0.78);
 
 }
-.fade--out {
+.fade-out {
     opacity: 1;
     /*animation: fadeOut 1s 100ms ease-in-out forwards;*/
     /*animation-name: fadeOut;*/
     /*animation-duration: 2s;*/
-    animation: 3s forwards alternate fadeOut;
+    animation: 2s forwards linear fadeOut;
+}
+.fade-in {
+  opacity: 0;
+    animation: 1s forwards linear fadeIn;
 }
 @keyframes blinking {
     from{
@@ -125,5 +132,13 @@ body {
     }
     to {
         opacity: 0;
+    }
+}
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }

@@ -58,7 +58,8 @@ if (SpeechRecognition) {
     recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
     function resultOfSpeechRecognition(event) {
         recognitionText.textContent = "";
-        recognitionText.classList.remove('.fade--out');
+        recognitionText.classList.remove('fade-out');
+        recognitionText.classList.add('fade-in')
         console.log('event', event, stage);
 
         const currentResult = event.resultIndex
@@ -86,7 +87,9 @@ if (SpeechRecognition) {
         // }
         setTimeout(() => {
             recognitionText.textContent = transcript;
-            recognitionText.classList.add('.fade--out');
+            recognitionText.classList.remove('fade-in')
+            recognitionText.classList.add('.fade-out');
+
             activateStage(transcript)
             // searchForm.submit();
         }, 550)
