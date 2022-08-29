@@ -116,27 +116,8 @@ const activateStage = async (transcript) => {
     } else if (stage === 2) {
         console.log('phase2');
         textGenerator(transcript);
-        updateStageInformation();
-    } else if (stage === 3) {
-        console.log('phase3');
-        if(transcript===' continue'){
-            updateStageInformation();
-        }
-        colorText(transcript);
-    }
-    else if(stage===4){
-        console.log('stage4', transcript)
-        textPosition(transcript.toLowerCase());
-        updateStageInformation();
-        if(transcript==='download'|| transcript===' download') {
-            console.log('dddddddddd1')
-            const mergedImage = convertHtmlToCanvas();
-            const newImage = document.createElement('img');
-            newImage.src = await mergedImage;
-            resultDiv.appendChild(newImage);
-
-
-        }
+        stage=1
+        // updateStageInformation();
     }
 }
 
