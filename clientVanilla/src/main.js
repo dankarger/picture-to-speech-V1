@@ -50,6 +50,7 @@ if (SpeechRecognition) {
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
         tryDiv.textContent = stagesDescriptionConstant[stage];
+        speak(stagesDescriptionConstant[stage]);
         stageCounter.textContent = `${stage}) `;
     }
 
@@ -140,11 +141,13 @@ const activateStage = async (transcript) => {
         if(transcript==='download'|| transcript===' download') {
             const mergedImage = convertHtmlToCanvas();
             const newImage = document.createElement('img');
+            newImage.id = 'new-image-id'
             newImage.src = await mergedImage;
+            resultDiv.appendChild(newImage)
             resultDiv.appendChild(newImage);
-            downloadImage();
+            await downloadImage(newImage.href);
             clearCurrenImg();
-
+            stage=1;
         }
     }
 }

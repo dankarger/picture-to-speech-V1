@@ -12,6 +12,13 @@
   text-shadow: $text-shadow1;
   color:$gray-color;
   padding:50px 70px;
+  transition: 300ms;
+    &:hover {
+    transform: scale(1.1) ;
+  }
+  &active {
+    background: rgba(255, 255, 255, 0.32);
+  }
 }
 
 .info-screen {

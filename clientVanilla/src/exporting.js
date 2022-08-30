@@ -13,26 +13,28 @@ export const convertHtmlToCanvas = async () => {
     //         return (canvas.toDataURL("image/jpeg", 0.9))
     //     }
     // )
+    const newImage = document.createElement('img');
 
     html2canvas(imageDiv, options).then(function (canvas) {
         document.body.appendChild(canvas);
+        newImage.src = canvas.toDataURL();
         // console.log('res',response)
     });
-
+    document.body.appendChild(newImage)
 // return response
 
 }
 
 
-export const downloadImage = async () => {
+export const downloadImage = async (src) => {
     console.log('4-downloading')
-    const canvas =  document.querySelector('canvas');
+    // const canvas =  document.querySelector('canvas');
     const aTag = document.querySelector('#download-link')
-    const btn = document.querySelector('#download-btn');
-    console.log('imgsrc-', canvas)
-    // aTag.href =  canvas.toDataURL()
-    // aTag.download = "image.png";
-    // aTag.click();
+    // const btn = document.querySelector('#download-btn');
+    // console.log('imgsrc-', canvas)
+    aTag.href = src
+    aTag.download = "image.png";
+    aTag.click();
     // aTag.setAttribute('href',image.src);
     // btn.click()
 }
