@@ -1,7 +1,8 @@
-import stagesDescriptionConstant from "./constants";
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, downloadImage} from "./exporting";
+import {speak} from "./textToSpeech";
+import stagesDescriptionConstant from "./constants";
 import './styles/styles.scss'
 
 
@@ -61,7 +62,7 @@ if (SpeechRecognition) {
     }
 
     recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
-    function resultOfSpeechRecognition(event) {
+   async function resultOfSpeechRecognition(event) {
         recognitionText.textContent = "";
         recognitionText.classList.remove('fade-out');
         recognitionText.classList.add('fade-in')
@@ -91,14 +92,14 @@ if (SpeechRecognition) {
         //         searchFormatInput.value = transcript
         //     }
         // }
-        setTimeout(() => {
+        // setTimeout(() => {
             recognitionText.textContent = transcript;
             recognitionText.classList.remove('fade-in')
             recognitionText.classList.add('.fade-out');
 
-            activateStage(transcript)
+           await activateStage(transcript)
             // searchForm.submit();
-        }, 10)
+        // }, 10)
     }
 } else {
     console.log("browser dont support")
@@ -152,7 +153,8 @@ const activateStage = async (transcript) => {
 const updateStageInformation = ()=>{
     console.log('g',stagesDescriptionConstant[stage])
     stage< 4 ? stage++ : stage = 4;
-    stageDescription.textContent = stagesDescriptionConstant[stage]
+    stageDescription.textContent = stagesDescriptionConstant[stage];
+    speak(stagesDescriptionConstant[stage]);
     stageCounter.textContent = `${stage}) `;
 
 }
@@ -162,13 +164,13 @@ const updateUserInput =(input)=> {
     userInputText.classList.add('fade-out');
     userInputText.textContent = `user: ${input}`;
     userInputText.classList.remove('fade-out');
-    userInputText.classList.add('fade-in')
+    userInputText.classList.add('fade-in');
 }
 
 const clearCurrenImg = ()=> {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
-     console.log('currentimg',currentImage.src)
+     console.log('currentimg',currentImage.src);
     currentImage.remove();
     textElement.textContent = '';
     title.remove();
