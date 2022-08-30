@@ -137,7 +137,7 @@ const activateStage = async (transcript) => {
     else if(stage===4){
         console.log('stage4', transcript)
         textPosition(transcript.toLowerCase());
-        updateStageInformation();
+
         if(transcript==='download'|| transcript===' download') {
             const mergedImage = convertHtmlToCanvas();
             const newImage = document.createElement('img');
@@ -146,16 +146,17 @@ const activateStage = async (transcript) => {
             resultDiv.appendChild(newImage)
             resultDiv.appendChild(newImage);
             await downloadImage(newImage.href);
-            clearCurrenImg();
-            stage=1;
+            await clearCurrenImg();
+            updateStageInformation()
         }
+        updateStageInformation();
     }
 }
 
 
 const updateStageInformation = ()=>{
     console.log('g',stagesDescriptionConstant[stage])
-    stage< 4 ? stage++ : stage = 4;
+    stage< 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
     stageCounter.textContent = `${stage}) `;
@@ -179,3 +180,5 @@ const clearCurrenImg = ()=> {
     title.remove();
 
 }
+
+stageDiv.addEventListener('click',()=>speak(stagesDescriptionConstant[stage]))
