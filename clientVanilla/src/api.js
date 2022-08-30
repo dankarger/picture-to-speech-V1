@@ -15,6 +15,7 @@
 
 // export default hello
 
+
 const getImageSecondOption = (query) => {
     console.log('2')
     const myHeaders = new Headers();
@@ -47,8 +48,10 @@ const getImageSecondOption = (query) => {
             const container = document.createElement('div');
             container.classList.add('container-img')
             const image2 = document.createElement('img');
+            image2.id = 'currentImage';
             const title = document.createElement('h3');
-            title.innerText = query
+            title.innerText = query;
+            title.id = 'title-id';
             // image2.src = URL.createObjectURL(response);
             if (response[0].src.medium) {
                 image2.src = response[0].src.medium;
@@ -64,4 +67,5 @@ const getImageSecondOption = (query) => {
         });
 }
 
-export default getImageSecondOption
+export default getImageSecondOption;
+

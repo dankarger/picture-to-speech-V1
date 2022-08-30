@@ -1,7 +1,7 @@
 import stagesDescriptionConstant from "./constants";
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
-import convertHtmlToCanvas from "./exporting";
+import {convertHtmlToCanvas, downloadImage} from "./exporting";
 import './styles/styles.scss'
 
 
@@ -15,6 +15,8 @@ const tryDiv = stageDiv.querySelector('.try');
 const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
 const resultDiv  = document.querySelector('#image-div');
+const textDiv = document.querySelector('#text-div');
+const textElement = textDiv.querySelector('.text');
 // import  htm2canvas from '../node_modules/html2canvas'
 let stage = 1;
 
@@ -110,6 +112,12 @@ const activateStage = async (transcript) => {
         updateStageInformation();
         return
     }
+    else if(transcript==='erase') {
+        clearCurrenImg();
+    }
+    else if(transcript===' continue' || transcript==='next'){
+        updateStageInformation();
+    }
     if (stage === 1) {
         getImageSecondOption(transcript);
         updateStageInformation();
@@ -119,9 +127,9 @@ const activateStage = async (transcript) => {
         updateStageInformation();
     } else if (stage === 3) {
         console.log('phase3');
-        if(transcript===' continue'){
-            updateStageInformation();
-        }
+        // if(transcript===' continue' || transcript==='next'){
+        //     updateStageInformation();
+        // }
         colorText(transcript);
     }
     else if(stage===4){
@@ -129,12 +137,12 @@ const activateStage = async (transcript) => {
         textPosition(transcript.toLowerCase());
         updateStageInformation();
         if(transcript==='download'|| transcript===' download') {
-            console.log('dddddddddd1')
             const mergedImage = convertHtmlToCanvas();
             const newImage = document.createElement('img');
             newImage.src = await mergedImage;
             resultDiv.appendChild(newImage);
-
+            downloadImage();
+            clearCurrenImg();
 
         }
     }
@@ -155,4 +163,14 @@ const updateUserInput =(input)=> {
     userInputText.textContent = `user: ${input}`;
     userInputText.classList.remove('fade-out');
     userInputText.classList.add('fade-in')
+}
+
+const clearCurrenImg = ()=> {
+    const title = document.querySelector('#title-id');
+    const currentImage = document.querySelector('#currentImage');
+     console.log('currentimg',currentImage.src)
+    currentImage.remove();
+    textElement.textContent = '';
+    title.remove();
+
 }
