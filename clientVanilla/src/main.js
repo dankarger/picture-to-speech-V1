@@ -80,21 +80,7 @@ if (SpeechRecognition) {
         } else if (!searchFormatInput.value) {
             searchFormatInput.value = transcript
         }
-        // else {
-        //     if (transcript.toLowerCase().trim() === 'go back') {
-        //         // searchForm.action = `http://localhost:8080/api/picture?query=${transcript}`
-        //         // getImageSecondOption(transcript)
-        //         // console.log('go back')
-        //         // stage--;
-        //         // searchFormatInput.value = '';
-        //
-        //     } else if (transcript.toLowerCase().trim() === 'reset input') {
-        //         searchFormatInput.value = '';
-        //     }
-        //     else {
-        //         searchFormatInput.value = transcript
-        //     }
-        // }
+
         // setTimeout(() => {
             recognitionText.textContent = transcript;
             recognitionText.classList.remove('fade-in')
