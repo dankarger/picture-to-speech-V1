@@ -12,10 +12,8 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
-const tryDiv = stageDiv.querySelector('.try');
 const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
-const resultDiv  = document.querySelector('#image-div');
 const textDiv = document.querySelector('#text-div');
 const textElement = textDiv.querySelector('.text');
 // import  htm2canvas from '../node_modules/html2canvas'
@@ -98,7 +96,6 @@ const activateStage = (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
-
         updateStageInformation();
         return
     }
@@ -108,7 +105,29 @@ const activateStage = (stage, transcript) => {
     else if(transcript===' continue' || transcript==='next'){
         updateStageInformation();
     }
-    if (stage===1) {
+    else if(transcript==='download'|| transcript===' download') {
+        console.log('ddd')
+        const mergedImage = convertHtmlToCanvas();
+        const newImage = document.createElement('img');
+        newImage.id = 'new-image-id'
+        newImage.src =   mergedImage;
+        // resultDiv.appendChild(newImage)
+        // resultDiv.appendChild(newImage);
+        clearCurrenImg();
+        searchFormatInput.value = transcript
+        downloadImage(newImage.href);
+        stage = 0
+        // updateStageInformation()
+        // updateStageInformation()
+        // activateStage(0,transcript)
+       // micBtnClick()
+        endSpeechRecognition();
+
+    }
+    if (stage===0){
+        speak(stagesDescriptionConstant[stage])
+     }
+    else if (stage===1) {
         getImageSecondOption(transcript);
         updateStageInformation();
         searchFormatInput.value = transcript
@@ -126,19 +145,19 @@ const activateStage = (stage, transcript) => {
     }
     else if (stage===4) {
         console.log('stage4', transcript)
-        if(transcript==='download'|| transcript===' download') {
-            console.log('ddd')
-            const mergedImage = convertHtmlToCanvas();
-            const newImage = document.createElement('img');
-            newImage.id = 'new-image-id'
-            newImage.src =   mergedImage;
-            // resultDiv.appendChild(newImage)
-            // resultDiv.appendChild(newImage);
-            clearCurrenImg();
-            searchFormatInput.value = transcript
-            downloadImage(newImage.href);
-            updateStageInformation()
-        }
+        // if(transcript==='download'|| transcript===' download') {
+        //     console.log('ddd')
+        //     const mergedImage = convertHtmlToCanvas();
+        //     const newImage = document.createElement('img');
+        //     newImage.id = 'new-image-id'
+        //     newImage.src =   mergedImage;
+        //     // resultDiv.appendChild(newImage)
+        //     // resultDiv.appendChild(newImage);
+        //     clearCurrenImg();
+        //     searchFormatInput.value = transcript
+        //     downloadImage(newImage.href);
+        //     updateStageInformation()
+        // }
         textPosition(transcript.toLowerCase());
         // updateStageInformation();
 
@@ -166,14 +185,11 @@ const clearCurrenImg = ()=> {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
     const imageDiv = document.querySelector('.container-img')
-    // const currentImage = document.querySelector('#new-image-id');
-    //
     console.log('currentimg',currentImage.src);
     currentImage.remove();
     imageDiv.remove();
     textElement.textContent = '';
     title.remove();
-
 }
 
 stageDiv.addEventListener('click',()=>speak(stagesDescriptionConstant[stage]))
