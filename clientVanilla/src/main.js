@@ -142,21 +142,21 @@ const activateStage =   (transcript) => {
             const newImage = document.createElement('img');
             newImage.id = 'new-image-id'
             newImage.src =   mergedImage;
-            resultDiv.appendChild(newImage)
+            // resultDiv.appendChild(newImage)
             // resultDiv.appendChild(newImage);
             clearCurrenImg();
               downloadImage(newImage.href);
             updateStageInformation()
         }
         textPosition(transcript.toLowerCase());
-        updateStageInformation();
+        // updateStageInformation();
     }
 }
 
 
 const updateStageInformation = ()=>{
     console.log('g',stagesDescriptionConstant[stage])
-    stage< 4 ? stage++ : stage = 1;
+    stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
     stageCounter.textContent = `${stage}) `;
@@ -174,10 +174,12 @@ const updateUserInput =(input)=> {
 const clearCurrenImg = ()=> {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
+    const imageDiv = document.querySelector('.container-img')
     // const currentImage = document.querySelector('#new-image-id');
     //
     console.log('currentimg',currentImage.src);
     currentImage.remove();
+    imageDiv.remove();
     textElement.textContent = '';
     title.remove();
 
