@@ -107,7 +107,7 @@ if (SpeechRecognition) {
 }
 
 
-const activateStage = async (transcript) => {
+const activateStage =   (transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
@@ -136,19 +136,19 @@ const activateStage = async (transcript) => {
     }
     else if(stage===4){
         console.log('stage4', transcript)
-        textPosition(transcript.toLowerCase());
-
         if(transcript==='download'|| transcript===' download') {
+            console.log('ddd')
             const mergedImage = convertHtmlToCanvas();
             const newImage = document.createElement('img');
             newImage.id = 'new-image-id'
-            newImage.src = await mergedImage;
+            newImage.src =   mergedImage;
             resultDiv.appendChild(newImage)
-            resultDiv.appendChild(newImage);
-            await downloadImage(newImage.href);
-            await clearCurrenImg();
+            // resultDiv.appendChild(newImage);
+            clearCurrenImg();
+              downloadImage(newImage.href);
             updateStageInformation()
         }
+        textPosition(transcript.toLowerCase());
         updateStageInformation();
     }
 }
@@ -174,7 +174,9 @@ const updateUserInput =(input)=> {
 const clearCurrenImg = ()=> {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
-     console.log('currentimg',currentImage.src);
+    // const currentImage = document.querySelector('#new-image-id');
+    //
+    console.log('currentimg',currentImage.src);
     currentImage.remove();
     textElement.textContent = '';
     title.remove();

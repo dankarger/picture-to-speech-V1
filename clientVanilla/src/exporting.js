@@ -14,7 +14,7 @@ export const convertHtmlToCanvas = async () => {
     //     }
     // )
     const newImage = document.createElement('img');
-
+    // newImage.id
     html2canvas(imageDiv, options).then(function (canvas) {
         document.body.appendChild(canvas);
         newImage.src = canvas.toDataURL();
