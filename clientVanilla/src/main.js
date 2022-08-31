@@ -100,7 +100,7 @@ if (SpeechRecognition) {
             recognitionText.classList.remove('fade-in')
             recognitionText.classList.add('.fade-out');
 
-           await activateStage(transcript)
+           await activateStage(stage, transcript)
             // searchForm.submit();
         // }, 10)
     }
@@ -108,8 +108,7 @@ if (SpeechRecognition) {
     console.log("browser dont support")
 }
 
-
-const activateStage =   (transcript) => {
+const activateStage = (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
@@ -123,24 +122,23 @@ const activateStage =   (transcript) => {
     else if(transcript===' continue' || transcript==='next'){
         updateStageInformation();
     }
-    if (stage === 1) {
+    if (stage===1) {
         getImageSecondOption(transcript);
         updateStageInformation();
         searchFormatInput.value = transcript
-    } else if (stage === 2) {
+    }
+    else if (stage===2) {
         console.log('phase2');
         searchFormatInput.value = transcript
         textGenerator(transcript);
         updateStageInformation();
-    } else if (stage === 3) {
+    }
+    else if (stage===3) {
         console.log('phase3');
-        // if(transcript===' continue' || transcript==='next'){
-        //     updateStageInformation();
-        // }
         colorText(transcript);
         searchFormatInput.value = transcript
     }
-    else if(stage===4){
+    else if (stage===4) {
         console.log('stage4', transcript)
         if(transcript==='download'|| transcript===' download') {
             console.log('ddd')
@@ -152,14 +150,14 @@ const activateStage =   (transcript) => {
             // resultDiv.appendChild(newImage);
             clearCurrenImg();
             searchFormatInput.value = transcript
-              downloadImage(newImage.href);
+            downloadImage(newImage.href);
             updateStageInformation()
         }
         textPosition(transcript.toLowerCase());
         // updateStageInformation();
+
     }
 }
-
 
 const updateStageInformation = ()=>{
     console.log('g',stagesDescriptionConstant[stage])
