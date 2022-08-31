@@ -25,6 +25,7 @@ if (SpeechRecognition) {
     console.log("browser support");
     searchForm.insertAdjacentHTML("beforeend", '          <button type="button" class="icon mic-off">MIC ICON</button>\n')
     const micBtn = searchForm.querySelector("button");
+    micBtn.id = 'mic-btn';
     const micIcon = searchForm.querySelector(".icon");
 
     const recognition = new SpeechRecognition();
@@ -52,7 +53,7 @@ if (SpeechRecognition) {
         console.log("Speech Recognition Active")
         tryDiv.textContent = stagesDescriptionConstant[stage];
         speak(stagesDescriptionConstant[stage]);
-        stageCounter.textContent = `${stage}) `;
+        stageCounter.textContent = `${stage}`;
     }
 
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
@@ -160,7 +161,7 @@ const updateStageInformation = ()=>{
     stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
-    stageCounter.textContent = `${stage}) `;
+    stageCounter.textContent = `${stage}`;
 
 }
 

@@ -1,14 +1,14 @@
 @import 'variables';
 
 #search-form {
-  width:30%;
+  width:fit-content;
   height:100%;
   display: flex;
   justify-content: start;
-  align-items: start;
+  align-items: center;
   flex-direction: column;
   padding:10px;
-  gap:15px;
+  gap:17px;
 }
 
 #firstInput {
@@ -24,10 +24,14 @@
 
 }
 
-
-button {
-  position: relative;
-  z-index: 2000;
+//
+//button {
+//  position: relative;
+//  z-index: 2000;
+//}
+#mic-btn {
+  display: flex;
+  align-self: center;
 }
 
 .mic-on{
