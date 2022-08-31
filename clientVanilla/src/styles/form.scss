@@ -8,12 +8,20 @@
   align-items: start;
   flex-direction: column;
   padding:10px;
-  gap:2%;
+  gap:15px;
 }
 
 #firstInput {
-  position: relative;
-  z-index: 1000;
+  //position: relative;
+  //z-index: 1000;
+  height:50px;
+  border-radius: 30px;
+  border: $secondary-color 2px solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
 }
 
 

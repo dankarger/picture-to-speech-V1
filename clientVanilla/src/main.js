@@ -19,7 +19,7 @@ const resultDiv  = document.querySelector('#image-div');
 const textDiv = document.querySelector('#text-div');
 const textElement = textDiv.querySelector('.text');
 // import  htm2canvas from '../node_modules/html2canvas'
-let stage = 1;
+let stage = 0;
 
 if (SpeechRecognition) {
     console.log("browser support");
@@ -37,6 +37,7 @@ if (SpeechRecognition) {
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
+            updateStageInformation()
         } else {
 
             recognition.stop();
@@ -186,3 +187,9 @@ const clearCurrenImg = ()=> {
 }
 
 stageDiv.addEventListener('click',()=>speak(stagesDescriptionConstant[stage]))
+searchForm.addEventListener('submit', event => {
+    event.preventDefault();
+    // actual logic, e.g. validate the form
+    console.log('Form submission cancelled.');
+
+});
