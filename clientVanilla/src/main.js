@@ -30,7 +30,7 @@ if (SpeechRecognition) {
 
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
-    // recognition.lang = "he"
+    // recognition.lang = "he"  // -----------------  hebrew
 
     console.log('lng', SpeechRecognition.lang)
     micBtn.addEventListener('click', micBtnClick);
@@ -51,7 +51,7 @@ if (SpeechRecognition) {
         micIcon.classList.add('mic-on');
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
-        tryDiv.textContent = stagesDescriptionConstant[stage];
+        // tryDiv.textContent = stagesDescriptionConstant[stage];
         speak(stagesDescriptionConstant[stage]);
         stageCounter.textContent = `${stage}`;
     }
@@ -113,6 +113,7 @@ const activateStage =   (transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
+
         updateStageInformation();
         return
     }
@@ -125,8 +126,10 @@ const activateStage =   (transcript) => {
     if (stage === 1) {
         getImageSecondOption(transcript);
         updateStageInformation();
+        searchFormatInput.value = transcript
     } else if (stage === 2) {
         console.log('phase2');
+        searchFormatInput.value = transcript
         textGenerator(transcript);
         updateStageInformation();
     } else if (stage === 3) {
@@ -135,6 +138,7 @@ const activateStage =   (transcript) => {
         //     updateStageInformation();
         // }
         colorText(transcript);
+        searchFormatInput.value = transcript
     }
     else if(stage===4){
         console.log('stage4', transcript)
@@ -147,6 +151,7 @@ const activateStage =   (transcript) => {
             // resultDiv.appendChild(newImage)
             // resultDiv.appendChild(newImage);
             clearCurrenImg();
+            searchFormatInput.value = transcript
               downloadImage(newImage.href);
             updateStageInformation()
         }
