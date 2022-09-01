@@ -17,6 +17,8 @@ const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
 const textDiv = document.querySelector('#text-div');
 const textElement = textDiv.querySelector('.text');
+
+const isSpeechOn = true;
 // import  htm2canvas from '../node_modules/html2canvas'
 let stage = 0;
 
