@@ -8,7 +8,7 @@ let voices = [];
 
 const getVoices = () => {
     voices = synth.getVoices();
-    // console.log(voices);
+    console.log(voices);
 
     //LOOP THROUGHT VOICES
     voices.forEach(voice => {
