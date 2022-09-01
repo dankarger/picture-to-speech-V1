@@ -8,8 +8,8 @@
     "build": "webpack ",
     "dev": "webpack serve",
     "start-server-dev": "nodemon server/app.js",
-    "start-react-dev": "npm run start --prefix client",
-    "heroku-postbuild": "npm install --prefix clientVanilla && npm run build-react"
+    "start-react-dev": "npm run start --prefix clientVanilla",
+
   },
   "keywords": [],
   "author": "",
