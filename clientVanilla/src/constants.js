@@ -6,3 +6,10 @@
     4:"stage4- position",
 }
  export default stagesDescriptionConstant
+
+ export const  commandList = {
+     "Continue" :"move to next stage ",
+     "go back" : " move back a stage",
+     "Download" : "Download the picture",
+ }
+

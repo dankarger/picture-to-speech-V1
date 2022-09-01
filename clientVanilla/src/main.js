@@ -2,7 +2,7 @@ import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, downloadImage} from "./exporting";
 import {speak} from "./textToSpeech";
-import stagesDescriptionConstant from "./constants";
+import stagesDescriptionConstant, {commandList} from "./constants";
 import './styles/styles.scss'
 
 
@@ -12,12 +12,23 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
+const infoScreen = document.querySelector('.info-screen')
 const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
 const textDiv = document.querySelector('#text-div');
 const textElement = textDiv.querySelector('.text');
 // import  htm2canvas from '../node_modules/html2canvas'
 let stage = 0;
+
+
+const injectCommand = ()=>{
+    for(const command in commandList){
+        const commandText = document.createElement('p');
+        commandText.textContent =` "${command}"  :  ${commandList[command]}`
+       infoScreen.appendChild(commandText);
+    }
+}
+injectCommand();
 
 if (SpeechRecognition) {
     console.log("browser support");
