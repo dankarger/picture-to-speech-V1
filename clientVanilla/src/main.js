@@ -49,7 +49,7 @@ if (SpeechRecognition) {
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
-            updateStageInformation()
+            // updateStageInformation()
         } else {
 
             recognition.stop();
