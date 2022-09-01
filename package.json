@@ -8,8 +8,7 @@
     "build": "webpack ",
     "dev": "webpack serve",
     "start-server-dev": "nodemon server/app.js",
-    "start-react-dev": "npm run start --prefix clientVanilla",
-
+    "start-react-dev": "npm run start --prefix clientVanilla"
   },
   "keywords": [],
   "author": "",
