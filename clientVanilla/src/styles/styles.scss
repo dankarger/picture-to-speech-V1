@@ -48,6 +48,10 @@ h1,h2,h3,p {
     //background-color: $secondary-color;
     padding: 20px;
     letter-spacing: 3px;
+
+    @media (max-width: 950px) {
+        flex-direction: column;
+    }
 }
 .container2 {
     display: flex;
