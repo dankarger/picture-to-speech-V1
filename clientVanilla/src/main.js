@@ -42,7 +42,7 @@ if (SpeechRecognition) {
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
     // recognition.lang = "he"  // -----------------  hebrew
-
+    recognition.lang = "en";
     console.log('lng', SpeechRecognition.lang)
     micBtn.addEventListener('click', micBtnClick);
 
