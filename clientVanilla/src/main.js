@@ -92,7 +92,7 @@ if (SpeechRecognition) {
     console.log("browser dont support")
 }
 
-const activateStage = (stage, transcript) => {
+const activateStage =  (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
@@ -107,9 +107,9 @@ const activateStage = (stage, transcript) => {
     }
     else if(transcript==='download'|| transcript===' download') {
         console.log('ddd')
-        const mergedImage = convertHtmlToCanvas();
+        const mergedImage =  convertHtmlToCanvas();
         const newImage = document.createElement('img');
-        newImage.id = 'new-image-id'
+        newImage.id = 'img-id'
         newImage.src =   mergedImage;
         // resultDiv.appendChild(newImage)
         // resultDiv.appendChild(newImage);
@@ -117,15 +117,18 @@ const activateStage = (stage, transcript) => {
         searchFormatInput.value = transcript
         downloadImage(newImage.href);
         stage = 0
+        console.log('stage',stage)
         // updateStageInformation()
         // updateStageInformation()
         // activateStage(0,transcript)
        // micBtnClick()
-        endSpeechRecognition();
-
+       //  endSpeechRecognition();
+        activateStage(0,'')
     }
     if (stage===0){
+        console.log('ffffffff')
         speak(stagesDescriptionConstant[stage])
+        updateStageInformation()
      }
     else if (stage===1) {
         getImageSecondOption(transcript);

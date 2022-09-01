@@ -14,14 +14,15 @@ export const convertHtmlToCanvas = async () => {
     //     }
     // )
     const newImage = document.createElement('img');
-    newImage.id = 'img-id'
-    html2canvas(imageDiv, options).then(function (canvas) {
+    newImage.id = 'img-id';
+    newImage.crossOrigin = 'anonymous';
+    const response = html2canvas(imageDiv, options).then(function (canvas) {
         document.body.appendChild(canvas);
-        newImage.src = canvas.toDataURL(); /// ?
+        // newImage.src = canvas.toDataURL(); /// ?
         // console.log('res',response)
     });
     document.body.appendChild(newImage)
-// return response
+    return response
 
 }
 
