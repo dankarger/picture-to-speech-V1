@@ -49,7 +49,7 @@ export const speak = (textInput) => {
         }
         // const selectedVoice = voices[0]
         //     .getAttribute('data-name');
-        speakText.voice = "alex";
+        // speakText.voice = "alex";
         // voices.forEach(voice => {
         //     if (voice.name === selectedVoice) {
         //         speakText.voice = voice;
