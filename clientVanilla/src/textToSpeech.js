@@ -47,6 +47,7 @@ export const speak = (textInput) => {
         speakText.onerror = e => {
             console.error('Something went wrong')
         }
+        speakText.voice = {voiceURI: 'Alex', name: 'Alex', lang: 'en-US', localService: true, default: true}
         // const selectedVoice = voices[0]
         //     .getAttribute('data-name');
         // speakText.voice = "alex";
