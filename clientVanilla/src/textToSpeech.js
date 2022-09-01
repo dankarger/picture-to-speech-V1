@@ -43,12 +43,13 @@ export const speak = (textInput) => {
             // body.style.background = '#141414';
 
         }
+        speakText.lang   = 'en-US';
         speakText.onerror = e => {
             console.error('Something went wrong')
         }
         // const selectedVoice = voices[0]
         //     .getAttribute('data-name');
-        speakText.voice = voices[0];
+        speakText.voice = "alex";
         // voices.forEach(voice => {
         //     if (voice.name === selectedVoice) {
         //         speakText.voice = voice;
