@@ -38,13 +38,13 @@ h1,h2,h3,p {
     display: flex;
     justify-content: flex-start;
     gap:1rem;
+
     align-items: flex-start;
     //flex-direction: column;
     width:90vw;
-    height:fit-content;
+    height:100%;
     border: 1px solid $gray-color;
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     //background-color: $secondary-color;
     padding: 20px;
     letter-spacing: 3px;

@@ -64,6 +64,7 @@ if (SpeechRecognition) {
         console.log("Speech Recognition Active")
         // tryDiv.textContent = stagesDescriptionConstant[stage];
         speak(stagesDescriptionConstant[stage]);
+        activateStage(0,"");
         stageCounter.textContent = `${stage}`;
     }
 
@@ -136,7 +137,7 @@ const activateStage =  (stage, transcript) => {
         // activateStage(0,transcript)
        // micBtnClick()
        //  endSpeechRecognition();
-        activateStage(0,'')
+        activateStage(1,'')
     }
     if (stage===0){
         console.log('ffffffff')

@@ -2,6 +2,7 @@ import html2canvas from 'html2canvas';
 
 
 export const convertHtmlToCanvas = async () => {
+    const container = document.querySelector('.container')
     const imageDiv = document.querySelector('#image-div');
     const text = document.querySelector('#text-div');
     imageDiv.appendChild(text);
@@ -21,7 +22,7 @@ export const convertHtmlToCanvas = async () => {
         // newImage.src = canvas.toDataURL(); /// ?
         // console.log('res',response)
     });
-    document.body.appendChild(newImage)
+    container.appendChild(newImage)
     return response
 
 }
