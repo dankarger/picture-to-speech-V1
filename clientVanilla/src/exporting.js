@@ -2,7 +2,7 @@ import html2canvas from 'html2canvas';
 
 
 export const convertHtmlToCanvas = async () => {
-    const container = document.querySelector('.container')
+    const container = document.querySelector('.results-container')
     const imageDiv = document.querySelector('#image-div');
     const text = document.querySelector('#text-div');
     imageDiv.appendChild(text);
@@ -18,11 +18,12 @@ export const convertHtmlToCanvas = async () => {
     newImage.id = 'img-id';
     newImage.crossOrigin = 'anonymous';
     const response = html2canvas(imageDiv, options).then(function (canvas) {
-        document.body.appendChild(canvas);
+        container.appendChild(canvas);
+        container.appendChild(newImage)
         // newImage.src = canvas.toDataURL(); /// ?
         // console.log('res',response)
     });
-    container.appendChild(newImage)
+    // document.body.appendChild(newImage)
     return response
 
 }

@@ -42,7 +42,7 @@ h1,h2,h3,p {
     align-items: flex-start;
     //flex-direction: column;
     width:90vw;
-    height:100%;
+    height:fit-content;
     border: 1px solid $gray-color;
     border-radius: 10px;
     //background-color: $secondary-color;
@@ -60,6 +60,11 @@ h1,h2,h3,p {
     flex-direction: column;
     position: relative;
     z-index: 1000;
+}
+.results-container {
+    background-color: $secondary-color;
+    width:90vw;
+
 }
 
 #image-div {
