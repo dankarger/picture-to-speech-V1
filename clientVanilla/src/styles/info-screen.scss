@@ -1,6 +1,15 @@
 @import 'variables';
 
+.commands-div {
+  min-width: 500px;
+  max-width: 550px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
 
+}
 
 .stage-div {
   position: relative;
@@ -13,7 +22,7 @@
   border: 2px solid $secondary-color;
   border-radius: 10px;
   text-shadow: $text-shadow1;
-  color:$secondary-color;
+  color:$blue-primary-color;
   padding:50px 70px;
   transition: 300ms;
     &:hover {
@@ -33,7 +42,7 @@
   position: absolute;
   top:0;
   transform: translateY(-15px);
-  background: $primary-color;
+  background: $white1-color;
 
 
 }
@@ -43,7 +52,7 @@
   height:100%;
   min-width: 30vw;
   min-height: 30vh;
-  background: #2f2b2b;
+  //background: #2f2b2b;
   border: 2px solid gray;
   //color: wheat;
   color:$primary-color;
