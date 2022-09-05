@@ -12,13 +12,16 @@
   flex: 1 1 auto;
 
 }
-
+.voice-div {
+  border-bottom : 1px solid $gray-secondary-color;
+  width: 100%;
+  padding: 20px;
+}
 .stage-div {
   width:fit-content;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
   gap:10px;
   border: 2px solid $secondary-color;
   border-radius: 10px;
@@ -41,7 +44,7 @@
   padding:3px 5px;
   //position: absolute;
   top:0;
-  transform: translateY(-15px);
+  //transform: translateY(-15px);
   background: $white1-color;
 
 

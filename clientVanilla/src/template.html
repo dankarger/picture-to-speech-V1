@@ -10,14 +10,11 @@
 <body>
 <div class="nav-bar">
     <div class="navbar-logo">Logo</div>
-    <div class="navbar-menu">Menu</div>
+    <div class="navbar-menu">Voice 2 Meme</div>
 </div>
 <div class="second-navbar">
-    <div class="stage-div">
-        <div class="stage-counter">0</div>
-        <h3 class="try" id="stage-description">Press the Mic button to begin</h3>
-    </div>
-    <form action="" method="get"  id="search-form">
+
+    <form action="" method="get" id="search-form">
         <label for="firstInput">Speak or Type</label>
         <input id="firstInput"
                type="text"
@@ -27,13 +24,18 @@
                autofocus
         >
     </form>
+    <div class="stage-div">
+        <div class="stage-counter">0</div>
+        <h3 class="try" id="stage-description">Press the Mic button to begin</h3>
+    </div>
 </div>
 <div class="container">
     <div class="left-menu">
         <div class="commands-div">
-            <input type="checkbox" id="voice-check-box" name="voice" value="off">
-            <label for="voice-check-box"> Activate voice</label><br>
-
+            <div class="voice-div">
+                <input type="checkbox" id="voice-check-box" name="voice" value="off">
+                <label for="voice-check-box"> Activate voice</label><br>
+            </div>
             <div class="info-screen">
                 <h3 class="info-headings ">Voice commands: </h3>
                 <h2 class="app-input"></h2>
@@ -43,24 +45,24 @@
             </div>
         </div>
     </div>
-   <div class="center-div">
+    <div class="center-div">
 
-       <div class="container2">
-           <div id="image-div">
-               <div id="text-div" class="position--top">
-                   <h2 class="text"></h2>
-               </div>
-           </div>
-       </div>
-       <div class="download-div"></div>
-       <a id="download-link" href="" download="apple">
-           <!--        <button id="download-btn" type="button">Download</button>-->
-       </a>
-   </div>
+        <div class="container2">
+            <div id="image-div">
+                <div id="text-div" class="position--top">
+                    <h2 class="text"></h2>
+                </div>
+            </div>
+        </div>
+        <div class="download-div"></div>
+        <a id="download-link" href="" download="apple">
+            <!--        <button id="download-btn" type="button">Download</button>-->
+        </a>
+    </div>
     <div class="right-menu">
         <div class="results-container">testttttttt</div>
     </div>
-   </div>
+</div>
 
 </body>
 </html>
