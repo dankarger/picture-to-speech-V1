@@ -137,7 +137,7 @@ const activateStage =  (stage, transcript) => {
         // activateStage(0,transcript)
        // micBtnClick()
        //  endSpeechRecognition();
-        activateStage(1,'')
+        activateStage(0,'')
     }
     if (stage===0){
         console.log('ffffffff')
@@ -162,19 +162,6 @@ const activateStage =  (stage, transcript) => {
     }
     else if (stage===4) {
         console.log('stage4', transcript)
-        // if(transcript==='download'|| transcript===' download') {
-        //     console.log('ddd')
-        //     const mergedImage = convertHtmlToCanvas();
-        //     const newImage = document.createElement('img');
-        //     newImage.id = 'new-image-id'
-        //     newImage.src =   mergedImage;
-        //     // resultDiv.appendChild(newImage)
-        //     // resultDiv.appendChild(newImage);
-        //     clearCurrenImg();
-        //     searchFormatInput.value = transcript
-        //     downloadImage(newImage.href);
-        //     updateStageInformation()
-        // }
         textPosition(transcript.toLowerCase());
         // updateStageInformation();
 

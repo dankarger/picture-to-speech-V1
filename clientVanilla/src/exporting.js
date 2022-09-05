@@ -19,8 +19,9 @@ export const convertHtmlToCanvas = async () => {
     newImage.crossOrigin = 'anonymous';
     const response = html2canvas(imageDiv, options).then(function (canvas) {
         container.appendChild(canvas);
+        newImage.src = canvas.toDataURL(); /// ?
         container.appendChild(newImage)
-        // newImage.src = canvas.toDataURL(); /// ?
+
         // console.log('res',response)
     });
     // document.body.appendChild(newImage)

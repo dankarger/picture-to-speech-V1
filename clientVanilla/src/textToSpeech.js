@@ -2,7 +2,7 @@ import stagesDescriptionConstant from "./constants";
 
 
 const synth = window.speechSynthesis;
-
+const activateSpeechCheckBox = document.querySelector('#voice-check-box');
 
 let voices = [];
 
@@ -29,6 +29,9 @@ if (synth.onvoiceschanged !== undefined) {
 
 export const speak = (textInput) => {
 
+    const playStatus = activateSpeechCheckBox.checked
+    console.log('play',playStatus)
+    if(!playStatus) return
     if (synth.speaking) {
         console.error('Already speaking');
         return;
@@ -60,6 +63,6 @@ export const speak = (textInput) => {
         // speakText.rate = rate.value;
         // speakText.pitch = pitch.value;
 
-        synth.speak(speakText)
+        synth.speak(speakText) //
     }
 }
