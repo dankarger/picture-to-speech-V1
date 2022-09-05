@@ -34,6 +34,7 @@ export const convertHtmlToCanvas = async () => {
         triggerDownload.href = imgURL
         triggerDownload.download =  "image.png";
         triggerDownload.click();
+        container.appendChild(canvas)
         triggerDownload.remove();
     });
 
