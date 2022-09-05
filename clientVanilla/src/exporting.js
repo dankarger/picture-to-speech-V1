@@ -34,7 +34,12 @@ export const convertHtmlToCanvas = async () => {
         triggerDownload.href = imgURL
         triggerDownload.download =  "image.png";
         triggerDownload.click();
-        container.appendChild(canvas)
+        canvas.style.width = '100%';
+        const newImage = document.createElement('img');
+        newImage.src = imgBase64
+        container.appendChild(newImage)
+        // container.appendChild(canvas)
+
         triggerDownload.remove();
     });
 

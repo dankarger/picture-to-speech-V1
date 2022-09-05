@@ -54,12 +54,16 @@ h1,h2,h3,p {
     z-index: 1000;
 }
 .results-container {
+    width:100%;
     display: flex;
     //flex: 1 1 auto;
-
+    justify-content: center;
+    align-items: center;
     background-color: $secondary-color;
     //width:90vw;
-
+    .img {
+        max-width:100px;
+    }
 }
 
 #image-div {
