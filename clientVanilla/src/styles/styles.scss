@@ -8,10 +8,11 @@
 @import 'variables', 'text', 'info-screen', 'form', 'navbar';
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding:0;
 }
 
 body {
-
     background-color: $white-bg-color;
     font-family: 'Roboto', sans-serif;
     display: flex;
@@ -20,8 +21,6 @@ body {
     justify-content: center;
      //height: 100vh;
     //overflow: hidden;
-    margin: 0;
-    padding: 20px;
     letter-spacing: 3px;
     line-height: normal;
 }
@@ -39,17 +38,8 @@ h1,h2,h3,p {
     display: flex;
     justify-content: flex-start;
     gap:1rem;
-
     align-items: flex-start;
-    //flex-direction: column;
-    //width:90vw;
-    //height:fit-content;
-    //border: 1px solid $gray-secondary-color;
-    //border-radius: 10px;
-    //background-color: $secondary-color;
-    padding: 20px;
     letter-spacing: 3px;
-
     @media (max-width: 950px) {
         flex-direction: column;
     }
