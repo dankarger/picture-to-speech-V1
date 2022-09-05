@@ -106,7 +106,7 @@ if (SpeechRecognition) {
     console.log("browser dont support")
 }
 
-const activateStage =  (stage, transcript) => {
+const activateStage = async (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1? stage-=2: stage = 1
@@ -129,7 +129,7 @@ const activateStage =  (stage, transcript) => {
         // resultDiv.appendChild(newImage);
         clearCurrenImg();
         searchFormatInput.value = transcript
-        downloadImage(newImage.href);
+        // await downloadImage(newImage.src);
         stage = 0
         console.log('stage',stage)
         // updateStageInformation()
@@ -137,7 +137,7 @@ const activateStage =  (stage, transcript) => {
         // activateStage(0,transcript)
        // micBtnClick()
        //  endSpeechRecognition();
-        activateStage(0,'')
+       await activateStage(0,'')
     }
     if (stage===0){
         console.log('ffffffff')

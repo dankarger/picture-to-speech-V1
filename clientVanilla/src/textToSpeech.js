@@ -8,8 +8,6 @@ let voices = [];
 
 const getVoices = () => {
     voices = synth.getVoices();
-    console.log(voices);
-
     //LOOP THROUGHT VOICES
     voices.forEach(voice => {
         const option = document.createElement('option');
@@ -30,7 +28,7 @@ if (synth.onvoiceschanged !== undefined) {
 export const speak = (textInput) => {
 
     const playStatus = activateSpeechCheckBox.checked
-    console.log('play',playStatus)
+
     if(!playStatus) return
     if (synth.speaking) {
         console.error('Already speaking');

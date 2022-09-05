@@ -17,13 +17,27 @@ export const convertHtmlToCanvas = async () => {
     const newImage = document.createElement('img');
     newImage.id = 'img-id';
     newImage.crossOrigin = 'anonymous';
-    const response = html2canvas(imageDiv, options).then(function (canvas) {
-        container.appendChild(canvas);
-        newImage.src = canvas.toDataURL(); /// ?
-        container.appendChild(newImage)
+    // const response = html2canvas(imageDiv, options).then(function (canvas) {
+    //     container.appendChild(canvas);
+    //     newImage.src = canvas.toDataURL(); /// ?
+    //     container.appendChild(newImage)
+    //
+    //     // console.log('res',response)
+    // });
 
-        // console.log('res',response)
+    const response =  html2canvas(imageDiv, { useCORS:true}).then(function (canvas){
+        const imgBase64 = canvas.toDataURL();
+        // console.log("imgBase64:", imgBase64);
+        const imgURL = "data:image/" + imgBase64;
+        // const triggerDownload = $("<a>").attr("href", imgURL).attr("download", "layout_"+new Date().getTime()+".jpeg").appendTo("body");
+        const triggerDownload =  document.querySelector('#download-link')
+        triggerDownload.href = imgURL
+        triggerDownload.download =  "image.png";
+        triggerDownload.click();
+        triggerDownload.remove();
     });
+
+
     // document.body.appendChild(newImage)
     return response
 
