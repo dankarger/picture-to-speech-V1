@@ -21,7 +21,7 @@ const textElement = textDiv.querySelector('.text');
 const isSpeechOn = true;
 // import  htm2canvas from '../node_modules/html2canvas'
 let stage = 0;
-
+let currentTitle = '';
 
 const injectCommand = ()=>{
     for(const command in commandList){
@@ -121,22 +121,14 @@ const activateStage = async (stage, transcript) => {
     }
     else if(transcript==='download'|| transcript===' download') {
         console.log('ddd')
-        const mergedImage =  convertHtmlToCanvas();
-        const newImage = document.createElement('img');
-        newImage.id = 'img-id'
-        newImage.src =   mergedImage;
-        // resultDiv.appendChild(newImage)
-        // resultDiv.appendChild(newImage);
+        await convertHtmlToCanvas(currentTitle);
+        // const newImage = document.createElement('img');
+        // newImage.id = 'img-id'
+        // newImage.src =    mergedImage;
         clearCurrenImg();
         searchFormatInput.value = transcript
-        // await downloadImage(newImage.src);
         stage = 0
         console.log('stage',stage)
-        // updateStageInformation()
-        // updateStageInformation()
-        // activateStage(0,transcript)
-       // micBtnClick()
-       //  endSpeechRecognition();
        await activateStage(0,'')
     }
     if (stage===0){
@@ -146,6 +138,7 @@ const activateStage = async (stage, transcript) => {
      }
     else if (stage===1) {
         getImageSecondOption(transcript);
+        currentTitle = transcript;
         updateStageInformation();
         searchFormatInput.value = transcript
     }

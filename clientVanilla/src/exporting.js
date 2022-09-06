@@ -1,7 +1,7 @@
 import html2canvas from 'html2canvas';
 
 
-export const convertHtmlToCanvas = async () => {
+export const convertHtmlToCanvas = async (currentTile="image") => {
     const container = document.querySelector('.results-container')
     const imageDiv = document.querySelector('#image-div');
     const text = document.querySelector('#text-div');
@@ -34,7 +34,7 @@ export const convertHtmlToCanvas = async () => {
         downloadLink.classList.add('download-link')
         // const triggerDownload =  document.querySelector('#download-link')
         downloadLink.href = imgURL
-        downloadLink.download =  "image.png";
+        downloadLink.download =  `${currentTile}.png`;
         downloadLink.click();
         canvas.style.width = '100%';
         const newImage = document.createElement('img');
@@ -45,6 +45,7 @@ export const convertHtmlToCanvas = async () => {
         // container.appendChild(canvas)
 
         // triggerDownload.remove();
+        return imgBase64
     });
 
 
