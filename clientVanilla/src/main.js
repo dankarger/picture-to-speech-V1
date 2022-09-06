@@ -19,7 +19,6 @@ const textDiv = document.querySelector('#text-div');
 const textElement = textDiv.querySelector('.text');
 
 const isSpeechOn = true;
-// import  htm2canvas from '../node_modules/html2canvas'
 let stage = 0;
 let currentTitle = '';
 
@@ -35,18 +34,14 @@ injectCommand();
 
 if (SpeechRecognition) {
     console.log("browser support");
-    // searchForm.insertAdjacentHTML("beforeend", '   <button type="button" class="icon mic-off">Start Session<span class="material-symbols-outlined">mic</span></button>')
     const micBtn = searchForm.querySelector("button");
-    // micBtn.id = 'mic-btn';
     const micIcon = searchForm.querySelector(".icon");
-
     const recognition = new SpeechRecognition();
     recognition.continuous = true;
     // recognition.lang = "he"  // -----------------  hebrew
     recognition.lang = "en";
     console.log('lng', SpeechRecognition.lang)
     micBtn.addEventListener('click', micBtnClick);
-
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
@@ -63,7 +58,6 @@ if (SpeechRecognition) {
         micIcon.classList.add('mic-on');
         searchFormatInput.focus();
         console.log("Speech Recognition Active")
-        // tryDiv.textContent = stagesDescriptionConstant[stage];
         speak(stagesDescriptionConstant[stage]);
         activateStage(0, "");
         stageCounter.textContent = `${stage}`;
