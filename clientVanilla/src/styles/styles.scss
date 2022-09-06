@@ -79,6 +79,7 @@ h1, h2, h3, p {
    border-left: 1px solid $gray-secondary-color;
   justify-content: center;
   align-items: center;
+  gap:10px;
   display: flex;
   flex-direction: column;
   background-color: $secondary-color;
