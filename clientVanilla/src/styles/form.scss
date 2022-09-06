@@ -31,10 +31,12 @@
 //}
 #mic-btn {
   display: flex;
-  align-self: center;
+  align-items: center;
   justify-content: center;
   padding:10px 20px;
-
+  &:hover {
+    cursor: pointer;
+  }
 
 }
 
@@ -53,4 +55,8 @@
   //padding:10px 20px;
   border-radius: 10px;
   color:$white-bg-color
+}
+
+.stage-description--div {
+  width:100%;
 }

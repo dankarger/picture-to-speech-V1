@@ -34,10 +34,15 @@
   transition: 300ms;
     &:hover {
     transform: scale(1.03) ;
+      cursor: pointer;
   }
   &active {
     background: rgba(255, 255, 255, 0.32);
   }
+}
+.stage-text-container {
+  width:100%;
+
 }
 .stage-counter {
   border: 2px solid $secondary-color;
@@ -89,4 +94,9 @@
   background-color: $gray-color;
   letter-spacing: 1px;
   color:$white1-color;
+}
+#voice-check-box {
+  &:hover {
+    cursor: pointer;
+  }
 }

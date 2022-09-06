@@ -25,10 +25,9 @@ if (synth.onvoiceschanged !== undefined) {
     synth.onvoiceschanged = getVoices;
 }
 
-export const speak = (textInput) => {
-
-    const playStatus = activateSpeechCheckBox.checked
-
+export const speak = (textInput, stageDivClicked= false) => {
+    let playStatus = activateSpeechCheckBox.checked
+    if(stageDivClicked) playStatus = true;
     if(!playStatus) return
     if (synth.speaking) {
         console.error('Already speaking');

@@ -177,7 +177,7 @@ const clearCurrenImg = () => {
     title.remove();
 }
 
-stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage]))
+stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage], true))
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
     // actual logic, e.g. validate the form
