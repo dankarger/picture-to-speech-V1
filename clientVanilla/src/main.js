@@ -35,9 +35,9 @@ injectCommand();
 
 if (SpeechRecognition) {
     console.log("browser support");
-    searchForm.insertAdjacentHTML("beforeend", '   <button type="button" class="icon mic-off">Start Session<span class="material-symbols-outlined">mic</span></button>')
+    // searchForm.insertAdjacentHTML("beforeend", '   <button type="button" class="icon mic-off">Start Session<span class="material-symbols-outlined">mic</span></button>')
     const micBtn = searchForm.querySelector("button");
-    micBtn.id = 'mic-btn';
+    // micBtn.id = 'mic-btn';
     const micIcon = searchForm.querySelector(".icon");
 
     const recognition = new SpeechRecognition();
