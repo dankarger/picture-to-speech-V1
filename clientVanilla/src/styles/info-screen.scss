@@ -11,7 +11,10 @@
   justify-content: space-around;
   flex: 1 1 auto;
   gap:40px;
-
+  background: $gray-bg-primary;
+  p {
+    font-size: 10px;
+  }
 }
 .voice-div {
   border-bottom : 1px solid $gray-secondary-color;
@@ -56,9 +59,18 @@
   height:100%;
   color:$primary-color;
   border-radius:10px;
-  box-shadow: $box-shadow;
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  align-items: center;
+  gap:3vh;
+  //box-shadow: $box-shadow;
+  background: $gray-bg-primary;
 }
 
+.commands-p {
+  color: $black-primary;
+}
 .info-headings {
   color: $white1-color;
   text-decoration: underline;

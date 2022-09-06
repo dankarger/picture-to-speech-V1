@@ -23,18 +23,19 @@ const isSpeechOn = true;
 let stage = 0;
 let currentTitle = '';
 
-const injectCommand = ()=>{
-    for(const command in commandList){
+const injectCommand = () => {
+    for (const command in commandList) {
         const commandText = document.createElement('p');
-        commandText.textContent =` "${command}"  :  ${commandList[command]}`
-       infoScreen.appendChild(commandText);
+        commandText.classList.add('commands-p')
+        commandText.textContent = `● ${command}`
+        infoScreen.appendChild(commandText);
     }
 }
 injectCommand();
 
 if (SpeechRecognition) {
     console.log("browser support");
-    searchForm.insertAdjacentHTML("beforeend", '          <button type="button" class="icon mic-off">MIC ICON</button>\n')
+    searchForm.insertAdjacentHTML("beforeend", '   <button type="button" class="icon mic-off">Start Session<span class="material-symbols-outlined">mic</span></button>')
     const micBtn = searchForm.querySelector("button");
     micBtn.id = 'mic-btn';
     const micIcon = searchForm.querySelector(".icon");
@@ -64,7 +65,7 @@ if (SpeechRecognition) {
         console.log("Speech Recognition Active")
         // tryDiv.textContent = stagesDescriptionConstant[stage];
         speak(stagesDescriptionConstant[stage]);
-        activateStage(0,"");
+        activateStage(0, "");
         stageCounter.textContent = `${stage}`;
     }
 
@@ -77,7 +78,7 @@ if (SpeechRecognition) {
     }
 
     recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
-   async function resultOfSpeechRecognition(event) {
+    async function resultOfSpeechRecognition(event) {
         recognitionText.textContent = "";
         recognitionText.classList.remove('fade-out');
         recognitionText.classList.add('fade-in')
@@ -94,12 +95,12 @@ if (SpeechRecognition) {
         }
 
         // setTimeout(() => {
-            recognitionText.textContent = transcript;
-            recognitionText.classList.remove('fade-in')
-            recognitionText.classList.add('.fade-out');
+        recognitionText.textContent = transcript;
+        recognitionText.classList.remove('fade-in')
+        recognitionText.classList.add('.fade-out');
 
-           await activateStage(stage, transcript)
-            // searchForm.submit();
+        await activateStage(stage, transcript)
+        // searchForm.submit();
         // }, 10)
     }
 } else {
@@ -109,17 +110,14 @@ if (SpeechRecognition) {
 const activateStage = async (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
-        stage > 1? stage-=2: stage = 1
+        stage > 1 ? stage -= 2 : stage = 1
         updateStageInformation();
         return
-    }
-    else if(transcript==='erase') {
+    } else if (transcript === 'erase') {
         clearCurrenImg();
-    }
-    else if(transcript===' continue' || transcript==='next'){
+    } else if (transcript === ' continue' || transcript === 'next') {
         updateStageInformation();
-    }
-    else if(transcript==='download'|| transcript===' download') {
+    } else if (transcript === 'download' || transcript === ' download') {
         console.log('ddd')
         await convertHtmlToCanvas(currentTitle);
         // const newImage = document.createElement('img');
@@ -128,32 +126,28 @@ const activateStage = async (stage, transcript) => {
         clearCurrenImg();
         searchFormatInput.value = transcript
         stage = 0
-        console.log('stage',stage)
-       await activateStage(0,'')
+        console.log('stage', stage)
+        await activateStage(0, '')
     }
-    if (stage===0){
+    if (stage === 0) {
         console.log('ffffffff')
         speak(stagesDescriptionConstant[stage])
         updateStageInformation()
-     }
-    else if (stage===1) {
+    } else if (stage === 1) {
         getImageSecondOption(transcript);
         currentTitle = transcript;
         updateStageInformation();
         searchFormatInput.value = transcript
-    }
-    else if (stage===2) {
+    } else if (stage === 2) {
         console.log('phase2');
         searchFormatInput.value = transcript
         textGenerator(transcript);
         updateStageInformation();
-    }
-    else if (stage===3) {
+    } else if (stage === 3) {
         console.log('phase3');
         colorText(transcript);
         searchFormatInput.value = transcript
-    }
-    else if (stage===4) {
+    } else if (stage === 4) {
         console.log('stage4', transcript)
         textPosition(transcript.toLowerCase());
         // updateStageInformation();
@@ -161,8 +155,8 @@ const activateStage = async (stage, transcript) => {
     }
 }
 
-const updateStageInformation = ()=>{
-    console.log('g',stagesDescriptionConstant[stage])
+const updateStageInformation = () => {
+    console.log('g', stagesDescriptionConstant[stage])
     stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
@@ -170,7 +164,7 @@ const updateStageInformation = ()=>{
 
 }
 
-const updateUserInput =(input)=> {
+const updateUserInput = (input) => {
     userInputText.classList.remove('fade-in');
     userInputText.classList.add('fade-out');
     userInputText.textContent = `user: ${input}`;
@@ -178,18 +172,18 @@ const updateUserInput =(input)=> {
     userInputText.classList.add('fade-in');
 }
 
-const clearCurrenImg = ()=> {
+const clearCurrenImg = () => {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
     const imageDiv = document.querySelector('.container-img')
-    console.log('currentimg',currentImage.src);
+    console.log('currentimg', currentImage.src);
     currentImage.remove();
     imageDiv.remove();
     textElement.textContent = '';
     title.remove();
 }
 
-stageDiv.addEventListener('click',()=>speak(stagesDescriptionConstant[stage]))
+stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage]))
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
     // actual logic, e.g. validate the form

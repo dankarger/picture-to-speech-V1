@@ -32,12 +32,15 @@
 #mic-btn {
   display: flex;
   align-self: center;
+  justify-content: center;
+  //padding:10px 20px;
+
+
 }
 
 .mic-on{
   /*background-color: #be0925;*/
   /*animation: blinking 1s 1s infinite ease ;*/
-  padding:10px 20px;
   border-radius: 10px;
   animation: 700ms infinite alternate blinking;
   color:$white-bg-color;
