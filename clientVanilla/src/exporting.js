@@ -30,17 +30,20 @@ export const convertHtmlToCanvas = async () => {
         // console.log("imgBase64:", imgBase64);
         const imgURL = "data:image/" + imgBase64;
         // const triggerDownload = $("<a>").attr("href", imgURL).attr("download", "layout_"+new Date().getTime()+".jpeg").appendTo("body");
-        const triggerDownload =  document.querySelector('#download-link')
-        triggerDownload.href = imgURL
-        triggerDownload.download =  "image.png";
-        triggerDownload.click();
+        const downloadLink = document.createElement('a');
+        downloadLink.classList.add('download-link')
+        // const triggerDownload =  document.querySelector('#download-link')
+        downloadLink.href = imgURL
+        downloadLink.download =  "image.png";
+        downloadLink.click();
         canvas.style.width = '100%';
         const newImage = document.createElement('img');
         newImage.src = imgBase64
-        container.appendChild(newImage)
+        downloadLink.appendChild(newImage)
+        container.appendChild(downloadLink)
         // container.appendChild(canvas)
 
-        triggerDownload.remove();
+        // triggerDownload.remove();
     });
 
 
