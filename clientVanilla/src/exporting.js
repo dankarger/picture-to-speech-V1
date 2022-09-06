@@ -39,8 +39,9 @@ export const convertHtmlToCanvas = async () => {
         canvas.style.width = '100%';
         const newImage = document.createElement('img');
         newImage.src = imgBase64
-        downloadLink.appendChild(newImage)
-        container.appendChild(downloadLink)
+        downloadLink.appendChild(newImage);
+        downloadLink.classList.add('thumb-img-style');
+        container.appendChild(downloadLink);
         // container.appendChild(canvas)
 
         // triggerDownload.remove();

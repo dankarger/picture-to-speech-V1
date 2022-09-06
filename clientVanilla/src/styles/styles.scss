@@ -79,12 +79,22 @@ h1, h2, h3, p {
    border-left: 1px solid $gray-secondary-color;
   justify-content: center;
   align-items: center;
+  display: flex;
+  flex-direction: column;
   background-color: $secondary-color;
    img {
     width: 100px;
     height: auto;
-    border: 1px solid $gray-secondary-color;
-     padding:10px;
+
+  }
+}
+
+.thumb-img-style {
+  border: 1px solid $gray-secondary-color;
+  padding:10px;
+  transition: 200ms ease-in;
+  &:hover {
+    transform: scale(1.03);
   }
 }
 
