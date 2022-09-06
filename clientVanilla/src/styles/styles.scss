@@ -75,31 +75,7 @@ h1, h2, h3, p {
   z-index: 1000;
 }
 
-.results-container {
-  width: 100%;
-  height: fit-content;
-   border-left: 1px solid $gray-secondary-color;
-  justify-content: center;
-  align-items: center;
-  gap:10px;
-  display: flex;
-  flex-direction: column;
-  background-color: $secondary-color;
-   img {
-    width: 100px;
-    height: auto;
 
-  }
-}
-
-.thumb-img-style {
-  border: 1px solid $gray-secondary-color;
-  padding:10px;
-  transition: 200ms ease-in;
-  &:hover {
-    transform: scale(1.03);
-  }
-}
 
 .center-div {
   group-reset: workplace;
