@@ -55,7 +55,7 @@ if (SpeechRecognition) {
     function startSpeechRecognition() {
         micIcon.classList.remove('mic-off');
         micIcon.classList.add('mic-on');
-        searchFormatInput.focus();
+        // searchFormatInput.focus();
         console.log("Speech Recognition Active")
         speak(stagesDescriptionConstant[stage]);
         activateStage(0, "");
@@ -66,7 +66,7 @@ if (SpeechRecognition) {
     function endSpeechRecognition() {
         micIcon.classList.remove('mic-on');
         micIcon.classList.add('mic-off');
-        searchFormatInput.focus();
+        // searchFormatInput.focus();
         console.log("Speech Recognition Disconnected")
     }
 
