@@ -1,10 +1,6 @@
 //@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-//
-//$primary-color: #8aaec0;
-//$secondary-color: #f4f4f4;
-//$gray-color: rgba(204, 198, 198, 0.78);
-//$box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
-//
+
+
 @import 'variables', 'text', 'info-screen', 'form', 'navbar';
 
 * {
@@ -17,11 +13,6 @@ body {
   //font-family: 'Roboto', sans-serif;
   background-color: $white-bg-color;
   font-family: 'DynaPuff', cursive;
-
-  //display: flex;
-  //flex-direction: column;
-  //align-items: center;
-  //justify-content: center;
   height: 100vh;
   width: 100vw;
   //overflow: hidden;
@@ -34,22 +25,12 @@ h1, h2, h3, p {
   padding: 0;
 }
 
-
 .container {
   width: 100%;
   height: 100%;
   background: $white-bg-color;
   box-shadow: $box-shadow;
-  //display: flex;
-  //justify-content: flex-start;
-  //gap:1rem;
-  //align-items: flex-start;
   display: grid;
-  //grid-template-columns: 50px 50px 50px 50px;
-  //grid-template-columns: auto;
-  //grid-template-rows: auto;
-  //grid-template-columns: 150px 1fr;
-
   grid-template-rows: 50px 1fr 30px;
   grid-template-columns: 150px 1fr;
   grid-template-areas:
@@ -75,15 +56,12 @@ h1, h2, h3, p {
   z-index: 1000;
 }
 
-
-
 .center-div {
   group-reset: workplace;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: start;
-
 }
 
 #image-div {
@@ -93,7 +71,6 @@ h1, h2, h3, p {
   align-items: center;
   position: relative;
 }
-
 
 .container-img {
   display: flex;
@@ -124,10 +101,7 @@ h1, h2, h3, p {
   left: 50%;
   /*top: 20%;*/
   transform: translate(-50%, -50%);
-
-
 }
-
 
  .material-symbols-outlined {
    font-variation-settings:
@@ -148,7 +122,6 @@ h1, h2, h3, p {
 .position--bottom {
   top: 80%;
 }
-
 
 .fade-out {
   opacity: 1;

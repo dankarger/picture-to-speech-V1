@@ -1,6 +1,5 @@
 @import 'variables';
 
-
 .nav-bar {
   padding-left:20px;
   width: 100%;
@@ -12,9 +11,16 @@
   background: $black-primary;
   .navbar-logo{
     color : $green-primary-color;
+    &:hover {
+      cursor: pointer;
+    }
   }
   .navbar-menu {
     color: $white1-color;
+    letter-spacing: 2px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 }
 
@@ -29,6 +35,7 @@
   border-bottom: $gray-secondary-color 2px solid;
   padding-left: 20px;
 }
+
 .left-menu {
   padding:10px 20px;
   grid-area: left-menu;
@@ -59,10 +66,8 @@
   img {
     width: 100px;
     height: auto;
-
   }
 }
-
 
 .thumb-img-style {
   width:100%;

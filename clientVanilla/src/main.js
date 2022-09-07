@@ -5,7 +5,6 @@ import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList} from "./constants";
 import './styles/styles.scss'
 
-
 const searchForm = document.querySelector("#search-form");
 const searchFormatInput = searchForm.querySelector("input");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
