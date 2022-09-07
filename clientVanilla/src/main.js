@@ -39,7 +39,6 @@ if (SpeechRecognition) {
     recognition.continuous = true;
     // recognition.lang = "he"  // -----------------  hebrew
     recognition.lang = "en";
-    console.log('lng', SpeechRecognition.lang)
     micBtn.addEventListener('click', micBtnClick);
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
@@ -75,7 +74,6 @@ if (SpeechRecognition) {
         recognitionText.textContent = "";
         recognitionText.classList.remove('fade-out');
         recognitionText.classList.add('fade-in')
-        console.log('event', event, stage);
 
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript;
@@ -111,7 +109,6 @@ const activateStage = async (stage, transcript) => {
     } else if (transcript === ' continue' || transcript === 'next') {
         updateStageInformation();
     } else if (transcript === 'download' || transcript === ' download') {
-        console.log('ddd')
         await convertHtmlToCanvas(currentTitle);
         // const newImage = document.createElement('img');
         // newImage.id = 'img-id'
@@ -119,11 +116,9 @@ const activateStage = async (stage, transcript) => {
         clearCurrenImg();
         searchFormatInput.value = transcript
         stage = 0
-        console.log('stage', stage)
         await activateStage(0, '')
     }
     if (stage === 0) {
-        console.log('ffffffff')
         speak(stagesDescriptionConstant[stage])
         updateStageInformation()
     } else if (stage === 1) {
@@ -132,16 +127,13 @@ const activateStage = async (stage, transcript) => {
         updateStageInformation();
         searchFormatInput.value = transcript
     } else if (stage === 2) {
-        console.log('phase2');
         searchFormatInput.value = transcript
         textGenerator(transcript);
         updateStageInformation();
     } else if (stage === 3) {
-        console.log('phase3');
         colorText(transcript);
         searchFormatInput.value = transcript
     } else if (stage === 4) {
-        console.log('stage4', transcript)
         textPosition(transcript.toLowerCase());
         // updateStageInformation();
 
@@ -149,7 +141,6 @@ const activateStage = async (stage, transcript) => {
 }
 
 const updateStageInformation = () => {
-    console.log('g', stagesDescriptionConstant[stage])
     stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
@@ -169,7 +160,6 @@ const clearCurrenImg = () => {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
     const imageDiv = document.querySelector('.container-img')
-    console.log('currentimg', currentImage.src);
     currentImage.remove();
     imageDiv.remove();
     textElement.textContent = '';

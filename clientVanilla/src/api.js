@@ -17,7 +17,6 @@
 
 
 const getImageSecondOption = (query) => {
-    console.log('2')
     const myHeaders = new Headers();
     // myHeaders.append('Accept', '*/*');
     myHeaders.append('Content-Type', 'application/json')

@@ -32,7 +32,6 @@ export const convertHtmlToCanvas = async (currentTile="image") => {
 }
 
 export const downloadImage = async (src) => {
-    console.log('4-downloading')
     const aTag = document.querySelector('#download-link')
     aTag.href = src
     aTag.download = "image.png";
