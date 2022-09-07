@@ -6,7 +6,7 @@ import stagesDescriptionConstant, {commandList} from "./constants";
 import './styles/styles.scss'
 
 const searchForm = document.querySelector("#search-form");
-const searchFormatInput = searchForm.querySelector("input");
+const searchFormatInput = document.querySelector("#firstInput");
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
@@ -83,8 +83,8 @@ if (SpeechRecognition) {
         // searchFormatInput.value = transcript;
         if (transcript.toLowerCase().trim() === 'stop recording') {
             recognition.stop()
-        } else if (!searchFormatInput.value) {
-            searchFormatInput.value = transcript
+        } else if (!searchFormatInput.textContent) {
+            searchFormatInput.textContent = transcript
         }
 
         // setTimeout(() => {

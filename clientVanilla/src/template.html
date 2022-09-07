@@ -9,8 +9,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DynaPuff:wght@400;500&family=Roboto:ital,wght@0,300;0,400;1,500;1,700&family=Rubik+Maze&display=swap"
           rel="stylesheet">
-<!--    //icon-->
+<!--    //icons-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<!--    ---//--- -->
     <title><%= htmlWebpackPlugin.options.title %></title>
 </head>
 <body>
@@ -20,18 +21,22 @@
     <div class="navbar-menu">Instructions</div>
 </div>
 <div class="second-navbar">
-
+    <div class="input-text-div">
+        <div id="firstInput"></div>
+    </div>
     <form action="" method="get" id="search-form">
-        <label for="firstInput">Speech: </label>
-        <input id="firstInput"
-               type="text"
-               name="q"
-               placeholder="Speech result"
-               autocomplete="false"
-               autofocus
-        >
-        <button type="button" id="mic-btn" class="icon mic-off"><p>Start Session2</p><span class="material-symbols-outlined">mic</span></button>
+<!--        <label for="firstInput">Speech: </label>-->
+<!--        <input id="firstInput"-->
+<!--               type="text"-->
+<!--               name="q"-->
+<!--               placeholder="Speech result"-->
+<!--               autocomplete="false"-->
+<!--               autofocus-->
+<!--        >-->
+
+        <button type="button" id="mic-btn" class="icon mic-off"><p>Start</p><span class="material-symbols-outlined">mic</span></button>
     </form>
+
     <div class="stage-div">
         <div class="stage-counter">0</div>
         <div class="stage-text-container">
@@ -44,12 +49,13 @@
 
         <div class="commands-div">
             <div class="voice-div">
+                <label for="voice-check-box"> <span class="material-symbols-outlined">
+text_to_speech
+</span>Voice</label><br>
                 <input type="checkbox" id="voice-check-box" name="voice" value="off">
-                <label for="voice-check-box"> Activate voice</label><br>
             </div>
-            <div>Menu</div>
+            <div>Commands:</div>
             <div class="info-screen">
-                <h4 class="info-headings ">Commands: </h4>
                 <p class="app-input"></p>
                 <div class="user-input">
                     <span class="user-span"></span> <h4 class="recognition--text"></h4>

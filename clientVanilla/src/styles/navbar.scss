@@ -25,6 +25,7 @@
 }
 
 .second-navbar {
+  //position: relative;
   width:100%;
   height:120px;
   background: $gray-bg-primary;
@@ -43,6 +44,25 @@
   height:100%;
   background: $gray-bg-primary;
   border-right: $gray-secondary-color 1px solid;
+}
+
+.voice-div {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  gap:5px;
+  label {
+    font-size: 10px;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:5px;
+  span {
+
+  }
+  }
 }
 
 .right-menu {
