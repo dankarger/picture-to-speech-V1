@@ -1,14 +1,15 @@
 import html2canvas from 'html2canvas';
+const downloadBtn = document.querySelector('#download-btn');
+
 
 export const convertHtmlToCanvas = async (currentTile="image") => {
-    const container = document.querySelector('.results-container')
+    const container = document.querySelector('.results-container');
     const imageDiv = document.querySelector('#image-div');
     const text = document.querySelector('#text-div');
     imageDiv.appendChild(text);
     const options = {
         allowTaint: true
     }
-
     const newImage = document.createElement('img');
     newImage.id = 'img-id';
     newImage.crossOrigin = 'anonymous';
@@ -26,6 +27,7 @@ export const convertHtmlToCanvas = async (currentTile="image") => {
         downloadLink.appendChild(newImage);
         downloadLink.classList.add('thumb-img-style');
         container.appendChild(downloadLink);
+        clearCurrenImg()
         return imgBase64
     });
     return response
@@ -37,3 +39,18 @@ export const downloadImage = async (src) => {
     aTag.download = "image.png";
     aTag.click();
 }
+
+export const clearCurrenImg = () => {
+    const title = document.querySelector('#title-id');
+    const currentImage = document.querySelector('#currentImage');
+    const imageDiv = document.querySelector('.container-img');
+    const textElement = document.querySelector('.text');
+
+    currentImage.remove();
+    imageDiv.remove();
+    textElement.textContent = '';
+    title.remove();
+}
+
+
+downloadBtn.addEventListener('click',()=> convertHtmlToCanvas('download'))

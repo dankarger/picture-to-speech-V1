@@ -1,6 +1,7 @@
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
-import {convertHtmlToCanvas, downloadImage} from "./exporting";
+import {convertHtmlToCanvas, clearCurrenImg} from "./exporting";
+
 import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList} from "./constants";
 import './styles/styles.scss'
@@ -14,8 +15,6 @@ const stageCounter = stageDiv.querySelector('.stage-counter');
 const infoScreen = document.querySelector('.info-screen')
 const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
-const textDiv = document.querySelector('#text-div');
-const textElement = textDiv.querySelector('.text');
 
 const isSpeechOn = true;
 let stage = 0;
@@ -156,15 +155,15 @@ const updateUserInput = (input) => {
     userInputText.classList.add('fade-in');
 }
 
-const clearCurrenImg = () => {
-    const title = document.querySelector('#title-id');
-    const currentImage = document.querySelector('#currentImage');
-    const imageDiv = document.querySelector('.container-img')
-    currentImage.remove();
-    imageDiv.remove();
-    textElement.textContent = '';
-    title.remove();
-}
+// const clearCurrenImg = () => {
+//     const title = document.querySelector('#title-id');
+//     const currentImage = document.querySelector('#currentImage');
+//     const imageDiv = document.querySelector('.container-img')
+//     currentImage.remove();
+//     imageDiv.remove();
+//     textElement.textContent = '';
+//     title.remove();
+// }
 
 stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage], true))
 searchForm.addEventListener('submit', event => {

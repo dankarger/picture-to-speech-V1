@@ -71,4 +71,4 @@ const handleVoiceClick = ()=>{
     voiceDiv.classList.toggle('voice-off');
 }
 
-voiceDiv.addEventListener('click',handleVoiceClick)
+// voiceDiv.addEventListener('click',handleVoiceClick)

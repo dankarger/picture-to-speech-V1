@@ -21,7 +21,8 @@
   position: absolute;
   //left:50%;
   white-space: nowrap;
-  left:50%;
+  right:50%;
+  bottom:5px;
   transform: translate(-50%,0);
           //z-index: 1000;
   height:50px;
@@ -48,6 +49,7 @@
   letter-spacing: 2px;
   font-weight: bold;
   line-height: 1.6;
+  box-shadow: $box-shadow;
   &:hover {
     cursor: pointer;
   }
@@ -73,4 +75,16 @@
 
 .stage-description--div {
   width:100%;
+}
+
+.download-btn-div {
+ position: absolute;
+  right:20px;
+
+}
+#download-btn {
+  background: $white1-color;
+  padding:10px 15px;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
 }
