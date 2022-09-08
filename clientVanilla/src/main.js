@@ -173,3 +173,4 @@ searchForm.addEventListener('submit', event => {
     console.log('Form submission cancelled.');
 
 });
+

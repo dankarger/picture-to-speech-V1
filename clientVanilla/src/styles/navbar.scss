@@ -1,23 +1,27 @@
 @import 'variables';
 
 .nav-bar {
-  padding-left:20px;
+  padding-left: 20px;
   width: 100%;
-  height:50px;
+  height: 50px;
   display: flex;
   justify-content: start;
-  gap:7rem;
+  gap: 7rem;
   align-items: center;
   background: $black-primary;
-  .navbar-logo{
-    color : $green-primary-color;
+
+  .navbar-logo {
+    color: $green-primary-color;
+
     &:hover {
       cursor: pointer;
     }
   }
+
   .navbar-menu {
     color: $white1-color;
     letter-spacing: 2px;
+
     &:hover {
       cursor: pointer;
     }
@@ -26,22 +30,22 @@
 
 .second-navbar {
   //position: relative;
-  width:100%;
-  height:120px;
+  width: 100%;
+  height: 120px;
   background: $gray-bg-primary;
   display: flex;
   justify-content: center;
-  gap:7rem;
+  gap: 7rem;
   align-items: center;
   border-bottom: $gray-secondary-color 2px solid;
   padding-left: 20px;
 }
 
 .left-menu {
-  padding:10px 20px;
+  padding: 10px 20px;
   grid-area: left-menu;
-  max-width:400px;
-  height:100%;
+  max-width: 400px;
+  height: 100%;
   background: $gray-bg-primary;
   border-right: $gray-secondary-color 1px solid;
 }
@@ -51,18 +55,39 @@
   flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
-  gap:5px;
+  gap: 5px;
+  border: 1px solid $gray-secondary-color;
+  border-radius: 5px;
+  box-shadow: $box-shadow;
+  &:hover {
+    cursor: pointer;
+  }
   label {
     font-size: 10px;
     white-space: nowrap;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:5px;
-  span {
+    gap: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+      input {
+        visibility: hidden;
+      }
+}
+#voice-check-box {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.voice-on {
+  background: #48AB89;
+}
 
-  }
-  }
+.voice-off {
+  background: $gray-bg-primary;
 }
 
 .right-menu {
@@ -70,7 +95,7 @@
   background: $gray-bg-primary;
   border-left: $gray-secondary-color 1px solid;
   width: 100%;
-  height:fit-content;
+  height: fit-content;
 }
 
 .results-container {
@@ -79,10 +104,11 @@
   border-left: 1px solid $gray-secondary-color;
   justify-content: center;
   align-items: center;
-  gap:10px;
+  gap: 10px;
   display: flex;
   flex-direction: column;
   background-color: $gray-bg-secondary;
+
   img {
     width: 100px;
     height: auto;
@@ -90,10 +116,11 @@
 }
 
 .thumb-img-style {
-  width:100%;
+  width: 100%;
   border: 1px solid $gray-bg-secondary;
   //padding:10px;
   transition: 200ms ease-in;
+
   &:hover {
     transform: scale(1.03);
   }

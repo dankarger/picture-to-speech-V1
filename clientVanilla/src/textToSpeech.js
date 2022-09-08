@@ -3,6 +3,7 @@ import stagesDescriptionConstant from "./constants";
 
 const synth = window.speechSynthesis;
 const activateSpeechCheckBox = document.querySelector('#voice-check-box');
+const voiceDiv = document.querySelector('.voice-div');
 
 let voices = [];
 
@@ -63,3 +64,11 @@ export const speak = (textInput, stageDivClicked= false) => {
         synth.speak(speakText) //
     }
 }
+
+const handleVoiceClick = ()=>{
+    activateSpeechCheckBox.click();
+    voiceDiv.classList.toggle('voice-on');
+    voiceDiv.classList.toggle('voice-off');
+}
+
+voiceDiv.addEventListener('click',handleVoiceClick)
