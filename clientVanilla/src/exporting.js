@@ -1,4 +1,6 @@
 import html2canvas from 'html2canvas';
+import {activateStage} from "./main";
+
 const downloadBtn = document.querySelector('#download-btn');
 
 
@@ -52,5 +54,17 @@ export const clearCurrenImg = () => {
     title.remove();
 }
 
+const downloadFromBtn = async ()=>{
 
-downloadBtn.addEventListener('click',()=> convertHtmlToCanvas('download'))
+    let currentImg = document.querySelector('#currentImage')
+    // if(!currentImg){
+    //     currentImg = document.querySelector('#currentImage')
+    // }
+    console.log('image',currentImg)
+    if(currentImg) {
+        await convertHtmlToCanvas('download');
+        await activateStage(0, '');
+    }
+}
+
+downloadBtn.addEventListener('click',downloadFromBtn )

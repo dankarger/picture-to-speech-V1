@@ -97,7 +97,7 @@ if (SpeechRecognition) {
     console.log("browser dont support")
 }
 
-const activateStage = async (stage, transcript) => {
+export const activateStage = async (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
         stage > 1 ? stage -= 2 : stage = 1
@@ -109,9 +109,6 @@ const activateStage = async (stage, transcript) => {
         updateStageInformation();
     } else if (transcript === 'download' || transcript === ' download') {
         await convertHtmlToCanvas(currentTitle);
-        // const newImage = document.createElement('img');
-        // newImage.id = 'img-id'
-        // newImage.src =    mergedImage;
         clearCurrenImg();
         searchFormatInput.value = transcript
         stage = 0
