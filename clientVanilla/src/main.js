@@ -3,7 +3,7 @@ import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, clearCurrenImg} from "./exporting";
 
 import {speak} from "./textToSpeech";
-import stagesDescriptionConstant, {commandList} from "./constants";
+import stagesDescriptionConstant, {commandList, instructionsConstant} from "./constants";
 import './styles/styles.scss'
 
 const searchForm = document.querySelector("#search-form");
@@ -17,6 +17,7 @@ const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
 const instructionBtnNavbar = document.querySelector('#instructions-btn-navbar');
 const instructionDiv = document.querySelector('.instructions-div');
+const instructionUl = instructionDiv.querySelector("ul");
 
 const isSpeechOn = true;
 let stage = 0;
@@ -29,7 +30,14 @@ const injectCommand = () => {
         commandText.textContent = `● ${command}`
         infoScreen.appendChild(commandText);
     }
+    for (const steps of instructionsConstant.steps) {
+        const stepListItem = document.createElement('p');
+        stepListItem.classList.add('step-item');
+        stepListItem.textContent = `${steps}`
+        instructionUl.appendChild(stepListItem)
+    }
 }
+
 injectCommand();
 
 if (SpeechRecognition) {
@@ -178,3 +186,4 @@ searchForm.addEventListener('submit', event => {
 });
 
 instructionBtnNavbar.addEventListener('click',handleInstructionBtnNavbarClick);
+instructionDiv.addEventListener('click',handleInstructionBtnNavbarClick);
