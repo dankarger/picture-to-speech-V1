@@ -98,3 +98,22 @@
   letter-spacing: 1px;
   color:$white1-color;
 }
+
+.instructions-div {
+  position: absolute;
+  width:30vw;
+  height:20vh;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  //display: flex;
+  justify-content: center;
+  align-items: center;
+  border:1px solid $gray-bg-primary;
+  box-shadow: $box-shadow;
+  display: none;
+}
+
+.visible {
+  display: flex;
+}

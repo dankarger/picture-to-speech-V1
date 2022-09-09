@@ -67,7 +67,7 @@ export const speak = (textInput, stageDivClicked= false) => {
 }
 
 const handleVoiceClick = (e)=>{
-    console.log('e',e.target, e.path)
+    console.log('e',e.target)
     console.log('click')
     activateSpeechCheckBox.click();
     voiceDiv.classList.toggle('voice-on');

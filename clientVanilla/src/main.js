@@ -15,6 +15,8 @@ const stageCounter = stageDiv.querySelector('.stage-counter');
 const infoScreen = document.querySelector('.info-screen')
 const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
+const instructionBtnNavbar = document.querySelector('#instructions-btn-navbar');
+const instructionDiv = document.querySelector('.instructions-div');
 
 const isSpeechOn = true;
 let stage = 0;
@@ -152,6 +154,11 @@ const updateUserInput = (input) => {
     userInputText.classList.add('fade-in');
 }
 
+const handleInstructionBtnNavbarClick = ()=> {
+    instructionDiv.classList.toggle('visible');
+}
+
+
 // const clearCurrenImg = () => {
 //     const title = document.querySelector('#title-id');
 //     const currentImage = document.querySelector('#currentImage');
@@ -170,3 +177,4 @@ searchForm.addEventListener('submit', event => {
 
 });
 
+instructionBtnNavbar.addEventListener('click',handleInstructionBtnNavbarClick);
