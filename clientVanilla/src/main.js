@@ -17,7 +17,8 @@ const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('.user-input');
 const instructionBtnNavbar = document.querySelector('#instructions-btn-navbar');
 const instructionDiv = document.querySelector('.instructions-div');
-const instructionUl = instructionDiv.querySelector("ul");
+const instructionUl = instructionDiv.querySelector(".instructions-ul");
+const instructionsGeneralDiv = instructionDiv.querySelector('.general-instructions-ul');
 
 const isSpeechOn = true;
 let stage = 0;
@@ -31,10 +32,16 @@ const injectCommand = () => {
         infoScreen.appendChild(commandText);
     }
     for (const steps of instructionsConstant.steps) {
-        const stepListItem = document.createElement('p');
+        const stepListItem = document.createElement('li');
         stepListItem.classList.add('step-item');
         stepListItem.textContent = `${steps}`
         instructionUl.appendChild(stepListItem)
+    }
+    for (const line of instructionsConstant.general) {
+        const generalInstructionLine = document.createElement('p')
+        generalInstructionLine.classList.add('general-line');
+        generalInstructionLine.textContent = `${line}`;
+        instructionsGeneralDiv.appendChild(generalInstructionLine)
     }
 }
 
