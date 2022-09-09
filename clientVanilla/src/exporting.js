@@ -42,19 +42,19 @@ export const downloadImage = async (src) => {
     aTag.click();
 }
 
-export const clearCurrenImg = () => {
+export const clearCurrenImg = async () => {
     const title = document.querySelector('#title-id');
     const currentImage = document.querySelector('#currentImage');
-    const imageDiv = document.querySelector('.container-img');
+    const imageDiv =  document.querySelector('.container-img');
     const textElement = document.querySelector('.text');
 
-    currentImage.remove();
+    // currentImage.remove();
     imageDiv.remove();
     textElement.textContent = '';
     title.remove();
 }
 
-const downloadFromBtn = async ()=>{
+export const downloadFromBtn = async ()=>{
 
     let currentImg = document.querySelector('#currentImage')
     // if(!currentImg){

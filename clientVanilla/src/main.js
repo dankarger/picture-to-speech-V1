@@ -1,6 +1,6 @@
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
-import {convertHtmlToCanvas, clearCurrenImg} from "./exporting";
+import {convertHtmlToCanvas, clearCurrenImg, downloadFromBtn} from "./exporting";
 
 import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList, instructionsConstant} from "./constants";
@@ -125,15 +125,20 @@ export const activateStage = async (stage, transcript) => {
         updateStageInformation();
         return
     } else if (transcript === 'erase') {
-        clearCurrenImg();
+        await clearCurrenImg();
+
     } else if (transcript === ' continue' || transcript === 'next') {
         updateStageInformation();
     } else if (transcript === 'download' || transcript === ' download') {
         await convertHtmlToCanvas(currentTitle);
-        clearCurrenImg();
-        searchFormatInput.value = transcript
+        // await activateStage(0,"")
+        const micBtn = searchForm.querySelector("button");
         stage = 0
-        await activateStage(0, '')
+        micBtn.click()
+        activateStage(0,"")
+        searchFormatInput.value = transcript
+
+        // await activateStage(0, '')
     }
     if (stage === 0) {
         speak(stagesDescriptionConstant[stage])
