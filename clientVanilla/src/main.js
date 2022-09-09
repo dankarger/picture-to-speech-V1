@@ -19,17 +19,20 @@ const instructionBtnNavbar = document.querySelector('#instructions-btn-navbar');
 const instructionDiv = document.querySelector('.instructions-div');
 const instructionUl = instructionDiv.querySelector(".instructions-ul");
 const instructionsGeneralDiv = instructionDiv.querySelector('.general-instructions-ul');
+const instructionsCommandDiv = instructionDiv.querySelector('.instructions-command-div');
 
 const isSpeechOn = true;
 let stage = 0;
 let currentTitle = '';
 
 const injectCommand = () => {
+
     for (const command in commandList) {
         const commandText = document.createElement('p');
         commandText.classList.add('commands-p')
-        commandText.textContent = `● ${command}`
+        commandText.textContent = `● "${command}": ${commandList[command]}`
         infoScreen.appendChild(commandText);
+        instructionsCommandDiv.appendChild(commandText)
     }
     for (const steps of instructionsConstant.steps) {
         const stepListItem = document.createElement('li');
@@ -43,6 +46,7 @@ const injectCommand = () => {
         generalInstructionLine.textContent = `${line}`;
         instructionsGeneralDiv.appendChild(generalInstructionLine)
     }
+
 }
 
 injectCommand();

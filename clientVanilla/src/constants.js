@@ -16,7 +16,9 @@ export const commandList = {
 export const instructionsConstant = {
     general:["This website use the Web Speech Api and speech recognition",
         "After you press the 'START' button, speak your commands",
-        "You can say 'DOWNLOAD' or press the Download button at any time to download the image to your device"],
+        "You can say 'DOWNLOAD' or press the Download button at any time to download the image to your device",
+        "Text to Voice: You can enable text to voice by pressing on voice button in the left menu "
+    ],
     steps:[
     "Press the Record button to begin",
     "Step 1: Say the subject of the picture",
