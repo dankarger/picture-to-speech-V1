@@ -98,20 +98,27 @@
   //max-width: 200px;
   background: $gray-bg-primary;
   border-left: $gray-secondary-color 1px solid;
-  width: 100%;
+  //width: 100%;
+  //min-width:200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height: fit-content;
 }
 
 .results-container {
-  width: 110px;
+  padding-top:20px;
+  width: 210px;
   height: 100%;
+  min-height:80vh;
   border-left: 1px solid $gray-secondary-color;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   gap: 10px;
   display: flex;
   flex-direction: column;
-  background-color: $gray-bg-secondary;
+  background-color: $white-bg-color;
+  box-shadow: $box-shadow;
 
   img {
     width: 100px;
@@ -120,9 +127,9 @@
 }
 
 .thumb-img-style {
-  width: 100%;
+  //width: 100%;
   border: 1px solid $gray-bg-secondary;
-  //padding:10px;
+  padding:10px;
   transition: 200ms ease-in;
 
   &:hover {
