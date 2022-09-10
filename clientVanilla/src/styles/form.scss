@@ -50,8 +50,10 @@
   font-weight: bold;
   line-height: 1.6;
   box-shadow: $box-shadow;
+  transition: 200ms ease-in;
   &:hover {
     cursor: pointer;
+    transform: scale(1.03);
   }
 
 }
@@ -83,11 +85,13 @@
 
 }
 #download-btn {
-  background: $white1-color;
+  background-color: $primary-color;
   padding:10px 15px;
   border-radius: 5px;
   box-shadow: $box-shadow;
+  transition: 200ms ease-in;
   &:hover {
     cursor: pointer;
+    background: $white1-color;
   }
 }
