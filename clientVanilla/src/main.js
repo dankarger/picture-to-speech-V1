@@ -64,9 +64,14 @@ if (SpeechRecognition) {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
             // updateStageInformation()
+            speak(stagesDescriptionConstant[stage]);
+            stage=0
+             activateStage(stage, "");
+            stageCounter.textContent = `${stage}`;
         } else {
 
             recognition.stop();
+            stage=0;
         }
     }
 
@@ -76,9 +81,7 @@ if (SpeechRecognition) {
         micIcon.classList.add('mic-on');
         // searchFormatInput.focus();
         console.log("Speech Recognition Active")
-        speak(stagesDescriptionConstant[stage]);
-        activateStage(0, "");
-        stageCounter.textContent = `${stage}`;
+
     }
 
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
@@ -121,7 +124,16 @@ if (SpeechRecognition) {
 export const activateStage = async (stage, transcript) => {
     if (transcript === ' go back') {
         // updateStageInformation();
-        stage > 1 ? stage -= 2 : stage = 1
+        console.log('goback1',stage)
+        if(stage > 1){
+            stage -=3;
+        }else {
+            stage = 1
+            return
+
+        }
+        console.log('goback2',stage)
+
         updateStageInformation();
         return
     } else if (transcript === 'erase') {
@@ -135,7 +147,7 @@ export const activateStage = async (stage, transcript) => {
         const micBtn = searchForm.querySelector("button");
         stage = 0
         micBtn.click()
-        activateStage(0,"")
+        // activateStage(0,"")
         searchFormatInput.value = transcript
 
         // await activateStage(0, '')
@@ -163,10 +175,13 @@ export const activateStage = async (stage, transcript) => {
 }
 
 const updateStageInformation = () => {
+
+
     stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
     stageCounter.textContent = `${stage}`;
+    console.log('dsdsdsdsd',stage)
 
 }
 
