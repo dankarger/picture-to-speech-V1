@@ -2,7 +2,7 @@ import html2canvas from 'html2canvas';
 import {activateStage} from "./main";
 
 const downloadBtn = document.querySelector('#download-btn');
-
+const micBtn = document.querySelector('#mic-btn')
 
 export const convertHtmlToCanvas = async (currentTile="image") => {
     const container = document.querySelector('.results-container');
@@ -63,6 +63,7 @@ export const downloadFromBtn = async ()=>{
     console.log('image',currentImg)
     if(currentImg) {
         await convertHtmlToCanvas('download');
+        micBtn.click()
         await activateStage(0, '');
     }
 }
