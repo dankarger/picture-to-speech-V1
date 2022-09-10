@@ -45,7 +45,7 @@
   padding: 20px 20px;
   grid-area: left-menu;
   max-width: 400px;
-  height: 100%;
+  height: calc(100vh - 170px);
   background: $gray-bg-primary;
   border-right: $gray-secondary-color 1px solid;
   display: flex;
@@ -126,19 +126,20 @@
   //max-width: 200px;
   background: $gray-bg-primary;
   border-left: $gray-secondary-color 1px solid;
+  height: calc(100vh - 170px);
   //width: 100%;
   //min-width:200px;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: fit-content;
+  //height: fit-content;
 }
 
 .results-container {
   padding-top:20px;
   width: 210px;
   height: 100%;
-  min-height:80vh;
+  //min-height:calc(100vh - 170px);
   border-left: 1px solid $gray-secondary-color;
   justify-content: start;
   align-items: center;
