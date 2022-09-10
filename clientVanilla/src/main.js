@@ -31,7 +31,7 @@ const injectCommand = () => {
         const commandText = document.createElement('p');
         commandText.classList.add('commands-p')
         commandText.textContent = `● "${command}": ${commandList[command]}`
-        infoScreen.appendChild(commandText);
+        // infoScreen.appendChild(commandText);
         instructionsCommandDiv.appendChild(commandText)
     }
     for (const steps of instructionsConstant.steps) {
