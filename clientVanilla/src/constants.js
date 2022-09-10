@@ -20,11 +20,11 @@ export const instructionsConstant = {
         "Text to Voice: You can enable text to voice by pressing on voice button in the left menu "
     ],
     steps:[
-    "Press the Record button to begin",
-    "Step 1: Say the subject of the picture",
-    "Step 2: (after the image appear) speak the text of the heading",
-    'Step 3: Say the color of the heading ("BLUE","GREEN","RED" etc)or say : "CONTINUE"',
-    'Step 4: Say the position of the heading ("TOP","CENTER",BOTTOM")'
+    "Press the Record button to begin.",
+    "Step 1: Say the subject of the picture.",
+    "Step 2: (after the image appear) speak the text of the heading.",
+    'Step 3: Say the color of the heading ("BLUE","GREEN","RED" etc)or say : "CONTINUE".',
+    'Step 4: Say the position of the heading ("TOP","CENTER",BOTTOM.")'
 ],
 commands:['"CONTINUE/NEXT": move to next step','"GO BACK": move to previous step','"DOWNLOAD": download the image']
 }
