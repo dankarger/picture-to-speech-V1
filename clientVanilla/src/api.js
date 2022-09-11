@@ -1,17 +1,17 @@
-// import axios from 'axios';
-//
-// let myUrl = 'http://localhost:8080/api'; //development
-//
-// if (process.env.NODE_ENV === 'production') {
-//     myUrl = '';
+import axios from 'axios';
+
+let myUrl = 'http://localhost:8080/api/picture'; //development
+
+if (process.env.NODE_ENV === 'production') {
+    myUrl = '/api/picture';
+}
+// if (process.env.NODE_ENV === 'development') {
+//     // console.log('propcc',process.env.NODE_ENV)
 // }
-// // if (process.env.NODE_ENV === 'development') {
-// //     // console.log('propcc',process.env.NODE_ENV)
-// // }
-//
-// export default axios.create({
-//     baseURL: myUrl
-// });
+
+ axios.create({
+    baseURL: myUrl
+});
 
 // export default hello
 
@@ -29,7 +29,7 @@ const getImageSecondOption = (query) => {
         mode: 'cors',
         cache: 'default',
     };
-    const myRequest = new Request(`http://localhost:8080/api/picture?query=${query}`);
+    const myRequest = new Request(`${myUrl}?query=${query}`);
 // myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
 //     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
 
