@@ -30,8 +30,8 @@ const getImageSecondOption = (query) => {
         cache: 'default',
     };
     const myRequest = new Request(`${myUrl}?query=${query}`);
-// myRequest.url = `https://api.pexels.com/v1/search?query=${query}`
-//     myRequest.url= `http://localhost:8080/api/picture?query=${query}`
+    console.log('request',myRequest)
+
 
     const myImage = document.querySelector('img')
     const img2Div = document.querySelector('#image-div')
