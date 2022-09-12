@@ -1,4 +1,6 @@
 import axios from 'axios';
+const path = require("path");
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 let myUrl = 'http://localhost:8080/api/picture'; //development
 
