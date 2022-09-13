@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // let myUrl = 'http://localhost:8080/api/picture'; //development
-let myUrl = '/api/picture'; //development
+let myUrl = '/api/picture';
 
 
 if (process.env.NODE_ENV === 'production') {
