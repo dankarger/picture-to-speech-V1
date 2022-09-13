@@ -8,11 +8,18 @@
   justify-content: start;
   align-items: center;
   background: $black-primary;
+  @include xs {
+    gap:10px;
+    justify-content: center;
+  }
   @include sm {
     gap:30px;
+    justify-content: center;
   }
   @include lg {
     gap: 7rem;
+    justify-content: start;
+
   }
 
   .navbar-logo {
@@ -24,12 +31,13 @@
     &:hover {
       cursor: pointer;
     }
-    @include sm {
-      font-size: 10px;
-    }
     @include xs {
       font-size: 7px;
     }
+    @include sm {
+      font-size: 10px;
+    }
+
   }
 
   .navbar-menu {
@@ -39,12 +47,13 @@
     &:hover {
       cursor: pointer;
     }
-    @include sm {
-      font-size: 10px;
-    }
     @include xs {
       font-size: 7px;
     }
+    @include sm {
+      font-size: 10px;
+    }
+
   }
 }
 
@@ -54,17 +63,29 @@
   height: 120px;
   background: $gray-bg-primary;
   display: flex;
-  justify-content: center;
-  gap: 7rem;
+
   align-items: center;
   border-bottom: $gray-secondary-color 2px solid;
   padding-left: 20px;
-  @include sm {
-    gap: 2rem;
-  }
   @include xs {
     gap:20px;
+    padding-left: 5px;
+    justify-content: left;
+
   }
+  @include sm {
+    gap: 2rem;
+    padding-left: 5px;
+    justify-content: left;
+
+  }
+  @include lg {
+    gap: 7rem;
+    padding-left: 20px;
+    justify-content: center;
+
+  }
+
 }
 
 .left-menu {

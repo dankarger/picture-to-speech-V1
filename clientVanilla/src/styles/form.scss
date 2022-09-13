@@ -1,4 +1,4 @@
-@import 'variables';
+@import 'variables', 'breakpoints';
 
 #search-form {
   //position: relative;
@@ -44,10 +44,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding:10px 20px;
-  font-size: 20px;
-  letter-spacing: 2px;
-  font-weight: bold;
+
   line-height: 1.6;
   box-shadow: $box-shadow;
   transition: 200ms ease-in;
@@ -55,6 +52,24 @@
     cursor: pointer;
     transform: scale(1.03);
   }
+  @include xs {
+      padding:5px 10px;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+  @include sm {
+    padding:8px 16px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
+  }
+
+  @include lg {
+    padding:10px 20px;
+    font-size: 20px;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+
 
 }
 
@@ -86,12 +101,25 @@
 }
 #download-btn {
   background-color: $primary-color;
-  padding:10px 15px;
+
   border-radius: 5px;
   box-shadow: $box-shadow;
   transition: 200ms ease-in;
   &:hover {
     cursor: pointer;
     background: $white1-color;
+  }
+  @include xs {
+    padding:5px 7px;
+    font-size: 10px;
+  }
+  @include sm {
+    padding:8px 10px;
+    font-size: 15px;
+  }
+
+  @include lg {
+    padding:10px 15px;
+    font-size: 20px;
   }
 }
