@@ -1,4 +1,4 @@
-@import 'variables';
+@import 'variables', 'breakpoints';
 
 .nav-bar {
   padding-left: 20px;
@@ -6,15 +6,29 @@
   height: 50px;
   display: flex;
   justify-content: start;
-  gap: 7rem;
   align-items: center;
   background: $black-primary;
+  @include sm {
+    gap:30px;
+  }
+  @include lg {
+    gap: 7rem;
+  }
 
   .navbar-logo {
     color: $green-primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
       cursor: pointer;
+    }
+    @include sm {
+      font-size: 10px;
+    }
+    @include xs {
+      font-size: 7px;
     }
   }
 
@@ -24,6 +38,12 @@
 
     &:hover {
       cursor: pointer;
+    }
+    @include sm {
+      font-size: 10px;
+    }
+    @include xs {
+      font-size: 7px;
     }
   }
 }
@@ -39,6 +59,12 @@
   align-items: center;
   border-bottom: $gray-secondary-color 2px solid;
   padding-left: 20px;
+  @include sm {
+    gap: 2rem;
+  }
+  @include xs {
+    gap:20px;
+  }
 }
 
 .left-menu {
