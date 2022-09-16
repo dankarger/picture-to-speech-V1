@@ -47,9 +47,9 @@ h1, h2, h3, p {
   }
   @include sm {
     grid-template-areas:
-    "left-menu  workplace workplace  result"
-    "left-menu  workplace workplace  result"
-    "left-menu  workplace workplace  result";
+    "left-menu  workplace workplace  workplace"
+    "left-menu  workplace workplace  workplace"
+    "result  result result result";
   }
 
   @include lg {
