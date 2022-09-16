@@ -41,9 +41,9 @@ h1, h2, h3, p {
   //}
   @include xs {
     grid-template-areas:
-    "left-menu  workplace workplace  workplace"
-    "left-menu  workplace workplace  workplace"
-    "result  result result result";
+    "left-menu  workplace workplace  workplace  workplace"
+    "left-menu  workplace workplace  workplace  workplace"
+    "result     result     result     result    result";
   }
   @include sm {
     grid-template-areas:
