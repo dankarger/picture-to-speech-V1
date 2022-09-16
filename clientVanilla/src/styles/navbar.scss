@@ -5,20 +5,22 @@
   width: 100%;
   height: 50px;
   display: flex;
-  justify-content: start;
   align-items: center;
   background: $black-primary;
   @include xs {
     gap:10px;
-    justify-content: center;
+    justify-content: space-around;
+
   }
   @include sm {
     gap:30px;
-    justify-content: center;
+    justify-content: space-around;
+
   }
   @include lg {
     gap: 7rem;
     justify-content: start;
+
 
   }
 
