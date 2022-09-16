@@ -87,7 +87,18 @@ h1, h2, h3, p {
   align-items: center;
   position: relative;
 }
-
+#current-img {
+  height:auto;
+  @include xs{
+    width:100px;
+  }
+  @include sm{
+    width:200px;
+  }
+  @include lg{
+    width: 100%;
+  }
+}
 .container-img {
   display: flex;
   justify-content: center;
