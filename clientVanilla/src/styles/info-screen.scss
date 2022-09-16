@@ -1,4 +1,4 @@
-@import 'variables';
+@import 'variables', 'breakpoints';
 
 .commands-div {
   //min-width: 500px;
@@ -23,7 +23,6 @@
   justify-content: center;
   align-items: center;
   gap:10px;
-  //border: 2px solid $gray-secondary-color;
   border-radius: 10px;
   text-shadow: $text-shadow1;
   color:$blue-primary-color;
@@ -35,17 +34,35 @@
   &active {
     background: rgba(255, 255, 255, 0.32);
   }
+  @include xs {
+    transform: translate(-10px, -33px);
+  }
+  @include sm {
+    transform: translate(-10px, -33px);
+  }
+  @include lg {
+    transform: translate(0, 0);
+  }
+
 }
 .stage-text-container {
   width:100%;
   position: relative;
-
   box-shadow: $box-shadow;
   transform: translateY(-10px);
 }
 #stage-description {
   position: absolute;
   white-space: nowrap;
+  @include xs {
+    font-size: 10px;
+  }
+  @include sm {
+    font-size: 14px;
+  }
+  @include lg {
+    font-size: 16px;
+  }
 }
 .stage-counter {
   border: 2px solid $secondary-color;

@@ -70,8 +70,6 @@
   @include xs {
     gap:20px;
     padding-left: 5px;
-    justify-content: left;
-
   }
   @include sm {
     gap: 2rem;
@@ -89,9 +87,7 @@
 }
 
 .left-menu {
-  padding: 20px 20px;
   grid-area: left-menu;
-  max-width: 400px;
   height: calc(100vh - 170px);
   background: $gray-bg-primary;
   border-right: $gray-secondary-color 1px solid;
@@ -99,6 +95,19 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  @include xs {
+    padding: 5px 5px;
+    max-width: 200px;
+  }
+  @include sm {
+    padding: 10px 10px;
+    max-width: 300px;
+  }
+
+  @include lg {
+    padding: 20px 20px;
+    max-width: 400px;
+  }
 }
 
 .voice-div {
