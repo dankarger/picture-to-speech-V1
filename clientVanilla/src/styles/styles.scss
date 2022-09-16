@@ -33,14 +33,30 @@ h1, h2, h3, p {
   display: grid;
   grid-template-rows: 50px 1fr 30px;
   grid-template-columns: 150px 1fr;
-  grid-template-areas:
+
+  //"left-menu  result result";
+  letter-spacing: 3px;
+  //@media (max-width: 950px) {
+  //  flex-direction: column;
+  //}
+  @include xs {
+    grid-template-areas:
+    "left-menu  workplace workplace  workplace"
+    "left-menu  workplace workplace  workplace"
+    "result  result result result";
+  }
+  @include sm {
+    grid-template-areas:
     "left-menu  workplace workplace  result"
     "left-menu  workplace workplace  result"
     "left-menu  workplace workplace  result";
-  //"left-menu  result result";
-  letter-spacing: 3px;
-  @media (max-width: 950px) {
-    flex-direction: column;
+  }
+
+  @include lg {
+    grid-template-areas:
+    "left-menu  workplace workplace  result"
+    "left-menu  workplace workplace  result"
+    "left-menu  workplace workplace  result";
   }
 }
 
