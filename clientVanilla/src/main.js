@@ -25,7 +25,7 @@ const instructionsCommandDiv = instructionDiv.querySelector('.instructions-comma
 
 
 const isSpeechOn = true;
-let stage = 0;
+export let stage = 0;
 let currentTitle = '';
 
 const injectCommand = () => {
