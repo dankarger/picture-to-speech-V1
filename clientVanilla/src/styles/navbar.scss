@@ -173,6 +173,8 @@
     border-top: 1px solid $gray-secondary-color;
     border-bottom: 1px solid $gray-secondary-color;
     transition: 200ms ease-in;
+    position: relative;
+    z-index: 200000;
     &:hover {
       cursor: pointer;
       background-color: $white1-color;

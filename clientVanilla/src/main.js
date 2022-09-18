@@ -1,7 +1,7 @@
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, clearCurrenImg, downloadFromBtn} from "./exporting";
-
+import {continueCommandButtonFunction} from "./commandsMenu";
 import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList, instructionsConstant} from "./constants";
 import './styles/styles.scss'
@@ -20,6 +20,7 @@ const instructionDiv = document.querySelector('.instructions-div');
 const instructionUl = instructionDiv.querySelector(".instructions-ul");
 const instructionsGeneralDiv = instructionDiv.querySelector('.general-instructions-ul');
 const instructionsCommandDiv = instructionDiv.querySelector('.instructions-command-div');
+
 
 const isSpeechOn = true;
 let stage = 0;
@@ -208,13 +209,22 @@ const handleInstructionBtnNavbarClick = ()=> {
 //     title.remove();
 // }
 
+
+
 stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage], true))
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
-    // actual logic, e.g. validate the form
     console.log('Form submission cancelled.');
 
 });
+
+// Event Listeners
+
+const commandContainer = document.querySelector('.commands-container');
+const commandButton = commandContainer.querySelector('.continue');
+const goBackButton = commandContainer.querySelector('.go-back');
+commandButton.addEventListener('click',continueCommandButtonFunction);
+goBackButton.addEventListener('click',continueCommandButtonFunction);
 
 instructionBtnNavbar.addEventListener('click',handleInstructionBtnNavbarClick);
 instructionDiv.addEventListener('click',handleInstructionBtnNavbarClick);
