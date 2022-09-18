@@ -1,6 +1,14 @@
 
 export const continueCommandButtonFunction = () => {
 
-    console.log('fffff')
     alert('continue')
+}
+
+export const goBackCommandButtonFunction = () => {
+
+    alert('goback')
+}
+export const downloadCommandButtonFunction = () => {
+
+    alert('download')
 }

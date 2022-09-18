@@ -1,7 +1,9 @@
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, clearCurrenImg, downloadFromBtn} from "./exporting";
-import {continueCommandButtonFunction} from "./commandsMenu";
+import {continueCommandButtonFunction,
+        goBackCommandButtonFunction,
+        downloadCommandButtonFunction } from "./commandsMenu";
 import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList, instructionsConstant} from "./constants";
 import './styles/styles.scss'
@@ -223,8 +225,11 @@ searchForm.addEventListener('submit', event => {
 const commandContainer = document.querySelector('.commands-container');
 const commandButton = commandContainer.querySelector('.continue');
 const goBackButton = commandContainer.querySelector('.go-back');
+const downloadButton = commandContainer.querySelector('.download');
+
 commandButton.addEventListener('click',continueCommandButtonFunction);
-goBackButton.addEventListener('click',continueCommandButtonFunction);
+goBackButton.addEventListener('click',goBackCommandButtonFunction);
+downloadButton.addEventListener('click', downloadCommandButtonFunction);
 
 instructionBtnNavbar.addEventListener('click',handleInstructionBtnNavbarClick);
 instructionDiv.addEventListener('click',handleInstructionBtnNavbarClick);
