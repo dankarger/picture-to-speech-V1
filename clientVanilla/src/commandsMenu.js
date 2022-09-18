@@ -5,17 +5,17 @@ import {stage} from "./main";
 
 
 let stage2 = stage
-export const continueCommandButtonFunction = () => {
-
-    speak('continue', true)
+export const continueCommandButtonFunction = async () => {
+    await activateStage(stage2,'continue')
+    // speak('continue', true)
 }
 
 export const goBackCommandButtonFunction = async () => {
     await activateStage(stage2,'go back')
-    speak('go back', true)
+    // speak('go back', true)
 
 }
 export const downloadCommandButtonFunction = async () => {
     await downloadFromBtn()
-    speak('download', true)
+    // speak('download', true)
 }
