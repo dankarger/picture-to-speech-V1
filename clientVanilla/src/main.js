@@ -38,9 +38,9 @@ const injectCommand = () => {
         instructionsCommandDiv.appendChild(commandText)
     }
     for (const steps of instructionsConstant.steps) {
-        const stepListItem = document.createElement('li');
+        const stepListItem = document.createElement('p');
         stepListItem.classList.add('step-item');
-        stepListItem.textContent = `${steps}`
+        stepListItem.textContent = `● ${steps}`
         instructionUl.appendChild(stepListItem)
     }
     for (const line of instructionsConstant.general) {
