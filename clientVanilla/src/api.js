@@ -35,8 +35,9 @@ const getImageSecondOption = (query) => {
     console.log('request',myRequest)
 
 
-    const myImage = document.querySelector('img')
+
     const img2Div = document.querySelector('#image-div')
+    const pictureTitle = document.querySelector('.picture-title')
     fetch(myRequest)
         .then((response) => {
             if (!response.ok) {
@@ -51,17 +52,19 @@ const getImageSecondOption = (query) => {
             const image2 = document.createElement('img');
             image2.id = 'currentImage';
             const title = document.createElement('h3');
-            title.innerText = query;
+            title.innerText = ` picture title: \n${query}`;
             title.id = 'title-id';
             // image2.src = URL.createObjectURL(response);
             if (response[0].src.medium) {
                 image2.src = response[0].src.medium;
 
                 container.append(image2)
-                container.append(title)
+                // container.append(title)  // to use in future game
+                pictureTitle.appendChild(title)
             } else {
                 title.innerText = "Error - please repeat";
-                container.append(title)
+                pictureTitle.appendChild(title)
+                // container.append(title) // to use in future game
             }
             img2Div.append(container)
 

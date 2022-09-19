@@ -5,10 +5,8 @@ export const textGenerator = (text) => {
     textElement.classList.add('fade-in')
     textDiv.classList.add('position--top');
     const fontSize = (textDiv.clientWidth / text.length);
-    // if(fontSize<100)
     textElement.style.fontSize = `${fontSize}px`;
     textElement.textContent = text;
-    // textDiv.appendChild(textDiv)
 }
 
 export const colorText = (color) => {

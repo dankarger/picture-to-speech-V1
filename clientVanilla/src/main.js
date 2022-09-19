@@ -17,9 +17,8 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
-const infoScreen = document.querySelector('.info-screen')
-const recognitionText = document.querySelector('.recognition--text');
-const userInputText = document.querySelector('.user-input');
+// const recognitionText = document.querySelector('.recognition--text');
+const userInputText = document.querySelector('#firstInput');
 const instructionBtnNavbar = document.querySelector('#instructions-btn-navbar');
 const instructionDiv = document.querySelector('.instructions-div');
 const instructionUl = instructionDiv.querySelector(".instructions-ul");
@@ -64,11 +63,9 @@ if (SpeechRecognition) {
     // recognition.lang = "he"  // -----------------  hebrew
     recognition.lang = "en";
     micBtn.addEventListener('click', micBtnClick);
-
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
-            speak(stagesDescriptionConstant[stage]);
             stage = 0
             activateStage(stage, "");
             stageCounter.textContent = `${stage}`;
@@ -95,9 +92,9 @@ if (SpeechRecognition) {
 
     recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
     async function resultOfSpeechRecognition(event) {
-        recognitionText.textContent = "";
-        recognitionText.classList.remove('fade-out');
-        recognitionText.classList.add('fade-in')
+        // recognitionText.textContent = "";
+        // recognitionText.classList.remove('fade-out');
+        // recognitionText.classList.add('fade-in')
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript;
         updateUserInput(transcript);
@@ -107,9 +104,9 @@ if (SpeechRecognition) {
         } else if (!searchFormatInput.textContent) {
             searchFormatInput.textContent = transcript
         }
-        recognitionText.textContent = transcript;
-        recognitionText.classList.remove('fade-in')
-        recognitionText.classList.add('.fade-out');
+        // recognitionText.textContent = transcript;
+        // recognitionText.classList.remove('fade-in')
+        // recognitionText.classList.add('.fade-out');
         await activateStage(stage, transcript)
     }
 } else {
@@ -119,13 +116,10 @@ if (SpeechRecognition) {
 export const activateStage = async (stage, transcript) => {
     if(transcript)searchFormatInput.textContent = ` user input: ${transcript}`;
     if (transcript === 'go back') {
-        // updateStageInformation();
-
         goBackFunction()
     } else if (transcript === 'erase') {
         await clearCurrenImg();
-
-    } else if (transcript === ' continue' || transcript === 'next') {
+    } else if (transcript=== ' continue' || transcript === 'next') {
 
         continueFunction()
     } else if (transcript === 'download' || transcript === ' download') {
@@ -137,7 +131,7 @@ export const activateStage = async (stage, transcript) => {
         searchFormatInput.value = transcript
     }
     if (stage === 0) {
-        speak(stagesDescriptionConstant[stage])
+        // speak(stagesDescriptionConstant[stage])
         updateStageInformation()
     } else if (stage === 1) {
         getImageSecondOption(transcript);
@@ -194,22 +188,9 @@ const updateUserInput = (input) => {
     userInputText.classList.remove('fade-out');
     userInputText.classList.add('fade-in');
 }
-
 const handleInstructionBtnNavbarClick = () => {
     instructionDiv.classList.toggle('visible');
 }
-
-
-// const clearCurrenImg = () => {
-//     const title = document.querySelector('#title-id');
-//     const currentImage = document.querySelector('#currentImage');
-//     const imageDiv = document.querySelector('.container-img')
-//     currentImage.remove();
-//     imageDiv.remove();
-//     textElement.textContent = '';
-//     title.remove();
-// }
-
 
 stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage], true))
 searchForm.addEventListener('submit', event => {
@@ -219,7 +200,6 @@ searchForm.addEventListener('submit', event => {
 });
 
 // Event Listeners
-
 const commandContainer = document.querySelector('.commands-container');
 const commandButton = commandContainer.querySelector('.continue');
 const goBackButton = commandContainer.querySelector('.go-back');

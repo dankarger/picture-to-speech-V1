@@ -34,7 +34,6 @@ export const speak = (textInput, stageDivClicked= false) => {
         const speakText = new SpeechSynthesisUtterance(textInput)
         speakText.onend = e => {
             console.log('Done speaking');
-
         }
         speakText.lang   = 'en-US';
         speakText.onerror = e => {
@@ -45,11 +44,11 @@ export const speak = (textInput, stageDivClicked= false) => {
 }
 
 const handleVoiceClick = (e)=>{
-    console.log('e',e.target)
-    console.log('click')
+    const stageText = document.querySelector('#stage-description').textContent
     activateSpeechCheckBox.click();
     voiceDiv.classList.toggle('voice-on');
     voiceDiv.classList.toggle('voice-off');
+    speak(stageText)
 }
 
 voiceWrapperDiv.addEventListener('click',handleVoiceClick)
