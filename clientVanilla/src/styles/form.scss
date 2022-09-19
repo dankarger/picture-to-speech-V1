@@ -35,11 +35,6 @@
   font-size: 20px;
 }
 
-//
-//button {
-//  position: relative;
-//  z-index: 2000;
-//}
 #mic-btn {
   display: flex;
   align-items: center;
@@ -69,13 +64,9 @@
     letter-spacing: 2px;
     font-weight: bold;
   }
-
-
 }
 
 .mic-on{
-  /*background-color: #be0925;*/
-  /*animation: blinking 1s 1s infinite ease ;*/
   border-radius: 10px;
   animation: 700ms infinite alternate blinking;
   color:$white-bg-color;
@@ -84,8 +75,6 @@
 .mic-off{
   background-color:$green-primary-color;
   border-color:$green-primary-color;
-
-  //padding:10px 20px;
   border-radius: 10px;
   color:$white-bg-color
 }
@@ -101,7 +90,6 @@
 }
 #download-btn {
   background-color: $primary-color;
-
   border-radius: 5px;
   box-shadow: $box-shadow;
   transition: 200ms ease-in;

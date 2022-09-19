@@ -1,10 +1,12 @@
 import getImageSecondOption from "./api";
 import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, clearCurrenImg, downloadFromBtn} from "./exporting";
-import {continueCommandButtonFunction,
-        goBackCommandButtonFunction,
-        downloadCommandButtonFunction,
-        resetCommandButtonFunction } from "./commandsMenu";
+import {
+    continueCommandButtonFunction,
+    goBackCommandButtonFunction,
+    downloadCommandButtonFunction,
+    resetCommandButtonFunction
+} from "./commandsMenu";
 import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList, instructionsConstant} from "./constants";
 import './styles/styles.scss'
@@ -62,17 +64,17 @@ if (SpeechRecognition) {
     // recognition.lang = "he"  // -----------------  hebrew
     recognition.lang = "en";
     micBtn.addEventListener('click', micBtnClick);
+
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
-            // updateStageInformation()
             speak(stagesDescriptionConstant[stage]);
-            stage=0
-             activateStage(stage, "");
+            stage = 0
+            activateStage(stage, "");
             stageCounter.textContent = `${stage}`;
         } else {
             recognition.stop();
-            stage=0;
+            stage = 0;
         }
     }
 
@@ -82,6 +84,7 @@ if (SpeechRecognition) {
         micIcon.classList.add('mic-on');
         console.log("Speech Recognition Active")
     }
+
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
     function endSpeechRecognition() {
         micIcon.classList.remove('mic-on');
@@ -114,9 +117,10 @@ if (SpeechRecognition) {
 }
 
 export const activateStage = async (stage, transcript) => {
+    if(transcript)searchFormatInput.textContent = ` user input: ${transcript}`;
     if (transcript === 'go back') {
         // updateStageInformation();
-        console.log('goback1',stage)
+
         goBackFunction()
     } else if (transcript === 'erase') {
         await clearCurrenImg();
@@ -130,10 +134,7 @@ export const activateStage = async (stage, transcript) => {
         const micBtn = searchForm.querySelector("button");
         stage = 0
         micBtn.click()
-        // activateStage(0,"")
         searchFormatInput.value = transcript
-
-        // await activateStage(0, '')
     }
     if (stage === 0) {
         speak(stagesDescriptionConstant[stage])
@@ -152,37 +153,31 @@ export const activateStage = async (stage, transcript) => {
         searchFormatInput.value = transcript
     } else if (stage === 4) {
         textPosition(transcript.toLowerCase());
-        // updateStageInformation();
-
     }
 }
 
-export const continueFunction =()=>{
-    console.log('conti')
+export const continueFunction = () => {
     const image = document.querySelector('#currentImage')
-
-    console.log('image',image)
-    if(!image){
+    if (!image) {
         alert("Can't continue without an image")
         return
     }
     updateStageInformation();
 }
-export const goBackFunction =()=>{
-    console.log('gobi')
-    if(stage===1){
+export const goBackFunction = () => {
+    if (stage === 1) {
         alert("you are all ready at the first step")
         return
-    }else if(stage > 1){
-        stage -=2;
+    } else if (stage > 1) {
+        stage -= 2;
     }
-    console.log('goback2',stage)
     updateStageInformation();
 }
 
 export const resetFunction = () => {
-    stage=0;
-    resetFunction();
+    stage = 0;
+    resetCommandButtonFunction();
+    updateStageInformation()
 }
 
 const updateStageInformation = () => {
@@ -190,8 +185,6 @@ const updateStageInformation = () => {
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
     stageCounter.textContent = `${stage}`;
-    console.log('dsdsdsdsd',stage)
-
 }
 
 const updateUserInput = (input) => {
@@ -202,7 +195,7 @@ const updateUserInput = (input) => {
     userInputText.classList.add('fade-in');
 }
 
-const handleInstructionBtnNavbarClick = ()=> {
+const handleInstructionBtnNavbarClick = () => {
     instructionDiv.classList.toggle('visible');
 }
 
@@ -218,7 +211,6 @@ const handleInstructionBtnNavbarClick = ()=> {
 // }
 
 
-
 stageDiv.addEventListener('click', () => speak(stagesDescriptionConstant[stage], true))
 searchForm.addEventListener('submit', event => {
     event.preventDefault();
@@ -232,10 +224,12 @@ const commandContainer = document.querySelector('.commands-container');
 const commandButton = commandContainer.querySelector('.continue');
 const goBackButton = commandContainer.querySelector('.go-back');
 const downloadButton = commandContainer.querySelector('.download');
+const resetButton = commandContainer.querySelector('.reset');
 
-commandButton.addEventListener('click',continueCommandButtonFunction);
-goBackButton.addEventListener('click',goBackCommandButtonFunction);
+commandButton.addEventListener('click', continueCommandButtonFunction);
+goBackButton.addEventListener('click', goBackCommandButtonFunction);
 downloadButton.addEventListener('click', downloadCommandButtonFunction);
+resetButton.addEventListener('click', resetFunction);
 
-instructionBtnNavbar.addEventListener('click',handleInstructionBtnNavbarClick);
-instructionDiv.addEventListener('click',handleInstructionBtnNavbarClick);
+instructionBtnNavbar.addEventListener('click', handleInstructionBtnNavbarClick);
+instructionDiv.addEventListener('click', handleInstructionBtnNavbarClick);
