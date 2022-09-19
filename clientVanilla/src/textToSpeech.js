@@ -44,11 +44,13 @@ export const speak = (textInput, stageDivClicked= false) => {
 }
 
 const handleVoiceClick = (e)=>{
+    e.stopPropagation();
     const stageText = document.querySelector('#stage-description').textContent
-    activateSpeechCheckBox.click();
+    // activateSpeechCheckBox.click();
     voiceDiv.classList.toggle('voice-on');
     voiceDiv.classList.toggle('voice-off');
     speak(stageText)
 }
 
-voiceWrapperDiv.addEventListener('click',handleVoiceClick)
+// voiceWrapperDiv.addEventListener('click',handleVoiceClick)
+voiceDiv.addEventListener('click',handleVoiceClick)

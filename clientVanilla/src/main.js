@@ -17,7 +17,6 @@ const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecogni
 const stageDescription = document.querySelector('#stage-description');
 const stageDiv = document.querySelector('.stage-div');
 const stageCounter = stageDiv.querySelector('.stage-counter');
-// const recognitionText = document.querySelector('.recognition--text');
 const userInputText = document.querySelector('#firstInput');
 const instructionBtnNavbar = document.querySelector('#instructions-btn-navbar');
 const instructionDiv = document.querySelector('.instructions-div');
@@ -63,6 +62,7 @@ if (SpeechRecognition) {
     // recognition.lang = "he"  // -----------------  hebrew
     recognition.lang = "en";
     micBtn.addEventListener('click', micBtnClick);
+
     function micBtnClick() {
         if (micIcon.classList.contains('mic-off')) {
             recognition.start();
@@ -86,27 +86,19 @@ if (SpeechRecognition) {
     function endSpeechRecognition() {
         micIcon.classList.remove('mic-on');
         micIcon.classList.add('mic-off');
-        // searchFormatInput.focus();
         console.log("Speech Recognition Disconnected")
     }
 
     recognition.addEventListener("result", resultOfSpeechRecognition);// <=> recognition.onresult = function(){...}
     async function resultOfSpeechRecognition(event) {
-        // recognitionText.textContent = "";
-        // recognitionText.classList.remove('fade-out');
-        // recognitionText.classList.add('fade-in')
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript;
         updateUserInput(transcript);
-        // searchFormatInput.value = transcript;
         if (transcript.toLowerCase().trim() === 'stop recording') {
             recognition.stop()
         } else if (!searchFormatInput.textContent) {
             searchFormatInput.textContent = transcript
         }
-        // recognitionText.textContent = transcript;
-        // recognitionText.classList.remove('fade-in')
-        // recognitionText.classList.add('.fade-out');
         await activateStage(stage, transcript)
     }
 } else {
@@ -114,12 +106,12 @@ if (SpeechRecognition) {
 }
 
 export const activateStage = async (stage, transcript) => {
-    if(transcript)searchFormatInput.textContent = ` user input: ${transcript}`;
+    if (transcript) searchFormatInput.textContent = ` user input: ${transcript}`;
     if (transcript === 'go back') {
         goBackFunction()
     } else if (transcript === 'erase') {
         await clearCurrenImg();
-    } else if (transcript=== ' continue' || transcript === 'next') {
+    } else if (transcript === ' continue' || transcript === 'next') {
 
         continueFunction()
     } else if (transcript === 'download' || transcript === ' download') {
