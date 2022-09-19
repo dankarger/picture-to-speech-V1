@@ -3,15 +3,16 @@ import {downloadFromBtn} from "./exporting";
 import {activateStage} from "./main";
 import {stage} from "./main";
 
-
-let stage2 = stage
 export const continueCommandButtonFunction = async () => {
-    await activateStage(stage2,'continue')
+    console.log('continue',     stage)
+    await activateStage(stage,'continue')
     // speak('continue', true)
 }
 
 export const goBackCommandButtonFunction = async () => {
-    await activateStage(stage2,'go back')
+    console.log('goback',     stage)
+
+    await activateStage(stage,'go back')
     // speak('go back', true)
 
 }

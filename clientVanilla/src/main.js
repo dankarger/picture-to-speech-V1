@@ -49,13 +49,11 @@ const injectCommand = () => {
         generalInstructionLine.textContent = `${line}`;
         instructionsGeneralDiv.appendChild(generalInstructionLine)
     }
-
 }
-
 injectCommand();
 
 if (SpeechRecognition) {
-    console.log("browser support");
+
     const micBtn = searchForm.querySelector("button");
     const micIcon = searchForm.querySelector(".icon");
     const recognition = new SpeechRecognition();
@@ -72,7 +70,6 @@ if (SpeechRecognition) {
              activateStage(stage, "");
             stageCounter.textContent = `${stage}`;
         } else {
-
             recognition.stop();
             stage=0;
         }
@@ -82,11 +79,8 @@ if (SpeechRecognition) {
     function startSpeechRecognition() {
         micIcon.classList.remove('mic-off');
         micIcon.classList.add('mic-on');
-        // searchFormatInput.focus();
         console.log("Speech Recognition Active")
-
     }
-
     recognition.addEventListener("end", endSpeechRecognition);// <=> recognition.onend = function(){...}
     function endSpeechRecognition() {
         micIcon.classList.remove('mic-on');
@@ -100,7 +94,6 @@ if (SpeechRecognition) {
         recognitionText.textContent = "";
         recognitionText.classList.remove('fade-out');
         recognitionText.classList.add('fade-in')
-
         const currentResult = event.resultIndex
         const transcript = event.results[currentResult][0].transcript;
         updateUserInput(transcript);
@@ -110,22 +103,17 @@ if (SpeechRecognition) {
         } else if (!searchFormatInput.textContent) {
             searchFormatInput.textContent = transcript
         }
-
-        // setTimeout(() => {
         recognitionText.textContent = transcript;
         recognitionText.classList.remove('fade-in')
         recognitionText.classList.add('.fade-out');
-
         await activateStage(stage, transcript)
-        // searchForm.submit();
-        // }, 10)
     }
 } else {
     console.log("browser dont support")
 }
 
 export const activateStage = async (stage, transcript) => {
-    if (transcript === ' go back') {
+    if (transcript === 'go back') {
         // updateStageInformation();
         console.log('goback1',stage)
         if(stage > 1){
@@ -133,10 +121,8 @@ export const activateStage = async (stage, transcript) => {
         }else {
             stage = 1
             return
-
         }
         console.log('goback2',stage)
-
         updateStageInformation();
         return
     } else if (transcript === 'erase') {
@@ -178,8 +164,6 @@ export const activateStage = async (stage, transcript) => {
 }
 
 const updateStageInformation = () => {
-
-
     stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
