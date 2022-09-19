@@ -26,7 +26,6 @@
   text-shadow: $text-shadow1;
   color: $blue-primary-color;
   transition: 300ms;
-
   &:hover {
     transform: scale(1.03);
     cursor: pointer;
@@ -37,10 +36,10 @@
   }
 
   @include xs {
-    transform: translate(-10px, -33px);
+    transform: translate(-80px, -33px);
   }
   @include sm {
-    transform: translate(-10px, -33px);
+    transform: translate(-80px, -33px);
   }
   @include lg {
     transform: translate(0, 0);
@@ -52,7 +51,7 @@
   width: 100%;
   position: relative;
   box-shadow: $box-shadow;
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 }
 
 #stage-description {
@@ -60,6 +59,7 @@
   white-space: nowrap;
   @include xs {
     font-size: 10px;
+
   }
   @include sm {
     font-size: 14px;
@@ -78,6 +78,8 @@
   padding: 3px 5px;
   top: 0;
   background: $white1-color;
+  white-space: nowrap;
+  font-size: 10px;
 }
 
 .info-screen {
@@ -172,4 +174,8 @@
     color: $primary-color;
 
   }
+}
+
+#title-id {
+  font-size:10px;
 }

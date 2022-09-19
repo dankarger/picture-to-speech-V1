@@ -68,7 +68,7 @@ if (SpeechRecognition) {
             recognition.start();
             stage = 0
             activateStage(stage, "");
-            stageCounter.textContent = `${stage}`;
+            stageCounter.textContent = `step ${stage}:`;
         } else {
             recognition.stop();
             stage = 0;
@@ -170,7 +170,7 @@ const updateStageInformation = () => {
     stage < 4 ? stage++ : stage = 1;
     stageDescription.textContent = stagesDescriptionConstant[stage];
     speak(stagesDescriptionConstant[stage]);
-    stageCounter.textContent = `${stage}`;
+    stageCounter.textContent = `step ${stage}:`;
 }
 
 const updateUserInput = (input) => {
