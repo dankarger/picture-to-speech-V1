@@ -27,14 +27,8 @@
   color: $blue-primary-color;
   transition: 300ms;
   &:hover {
-    transform: scale(1.03);
     cursor: pointer;
   }
-
-  &active {
-    background: rgba(255, 255, 255, 0.32);
-  }
-
   @include xs {
     transform: translate(-80px, -33px);
   }
@@ -44,22 +38,23 @@
   @include lg {
     transform: translate(0, 0);
   }
-
+  &active {
+    background: rgba(255, 255, 255, 0.32);
+  }
 }
 
 .stage-text-container {
   width: 100%;
   position: relative;
-  box-shadow: $box-shadow;
-  transform: translateY(-5px);
+  //box-shadow: $box-shadow;
+  //transform: translateY(-5px);
 }
 
 #stage-description {
-  position: absolute;
+  //position: absolute;
   white-space: nowrap;
   @include xs {
     font-size: 10px;
-
   }
   @include sm {
     font-size: 14px;
@@ -79,7 +74,7 @@
   top: 0;
   background: $white1-color;
   white-space: nowrap;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .info-screen {
