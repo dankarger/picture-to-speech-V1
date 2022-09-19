@@ -3,7 +3,8 @@ import {colorText, textPosition, textGenerator} from "./textGenerator";
 import {convertHtmlToCanvas, clearCurrenImg, downloadFromBtn} from "./exporting";
 import {continueCommandButtonFunction,
         goBackCommandButtonFunction,
-        downloadCommandButtonFunction } from "./commandsMenu";
+        downloadCommandButtonFunction,
+        resetCommandButtonFunction } from "./commandsMenu";
 import {speak} from "./textToSpeech";
 import stagesDescriptionConstant, {commandList, instructionsConstant} from "./constants";
 import './styles/styles.scss'
@@ -116,20 +117,13 @@ export const activateStage = async (stage, transcript) => {
     if (transcript === 'go back') {
         // updateStageInformation();
         console.log('goback1',stage)
-        if(stage > 1){
-            stage -=3;
-        }else {
-            stage = 1
-            return
-        }
-        console.log('goback2',stage)
-        updateStageInformation();
-        return
+        goBackFunction()
     } else if (transcript === 'erase') {
         await clearCurrenImg();
 
     } else if (transcript === ' continue' || transcript === 'next') {
-        updateStageInformation();
+
+        continueFunction()
     } else if (transcript === 'download' || transcript === ' download') {
         await convertHtmlToCanvas(currentTitle);
         // await activateStage(0,"")
@@ -161,6 +155,34 @@ export const activateStage = async (stage, transcript) => {
         // updateStageInformation();
 
     }
+}
+
+export const continueFunction =()=>{
+    console.log('conti')
+    const image = document.querySelector('#currentImage')
+
+    console.log('image',image)
+    if(!image){
+        alert("Can't continue without an image")
+        return
+    }
+    updateStageInformation();
+}
+export const goBackFunction =()=>{
+    console.log('gobi')
+    if(stage===1){
+        alert("you are all ready at the first step")
+        return
+    }else if(stage > 1){
+        stage -=2;
+    }
+    console.log('goback2',stage)
+    updateStageInformation();
+}
+
+export const resetFunction = () => {
+    stage=0;
+    resetFunction();
 }
 
 const updateStageInformation = () => {
