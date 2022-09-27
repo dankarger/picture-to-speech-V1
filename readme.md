@@ -2,7 +2,7 @@
 
 https://voice-to-pic.herokuapp.com/
 
-##A site to create memes with voice commands
+## A site to create memes with voice commands
 #### Instructions:
 This website use the Web Speech Api and speech recognition,
 After you press the 'START' button, speak your commands,
