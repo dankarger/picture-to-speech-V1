@@ -1,6 +1,8 @@
-# Voice 2 Pic
+<div style="text-align: center;"> 
+<h1 >Voice 2 Pic </h1> 
+<a href="https://voice-to-pic.herokuapp.com/">https://voice-to-pic.herokuapp.com</a>
 
-https://voice-to-pic.herokuapp.com/
+ </div>
 
 ## A site to create simple memes with voice commands
 #### Instructions:
@@ -20,7 +22,7 @@ Steps:
 | Step 5 | Say "Download" to download the result image.                                    |
 
 At any step you can press the buttons on the left menu :
-- <u> "CONTINUE/ NEXT"</u>: move to next step. 
+- <u> "CONTINUE" or "NEXT"</u>: move to next step. 
 - <u>"GO BACK"</u>: move to previous step. 
 - <u>"DOWNLOAD"</u>: download the image.
 - <u>"RESET"</u>: Start Over.
