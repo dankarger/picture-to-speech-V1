@@ -1,5 +1,5 @@
-<div style="text-align: center;"> 
-<h1 >Voice 2 Pic </h1> 
+<div> 
+<h1  style="text-align: center;">Voice 2 Pic </h1> 
 <a href="https://voice-to-pic.herokuapp.com/">https://voice-to-pic.herokuapp.com</a>
 
  </div>
