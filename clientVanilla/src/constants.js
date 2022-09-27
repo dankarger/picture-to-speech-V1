@@ -22,7 +22,7 @@ export const instructionsConstant = {
     steps:[
     "Press the Record button to begin.",
     "Step 1: Say the subject of the picture.",
-    "Step 2: (after the image appear) speak the text of the heading.",
+    "Step 2: (after the image appear) speak the text for the heading.",
     'Step 3: Say the color of the heading ("BLUE","GREEN","RED" etc)or say : "CONTINUE".',
     'Step 4: Say the position of the heading ("TOP","CENTER",BOTTOM.")'
 ],
