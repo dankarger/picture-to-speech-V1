@@ -18,5 +18,13 @@ export const downloadCommandButtonFunction = async () => {
 
 export const resetCommandButtonFunction = () => {
         const imageContainer = document.querySelector('.container-img');
-        if (imageContainer) imageContainer.remove()
+        const credits = document.querySelector('.credits');
+        const title = document.querySelector('.title');
+        const userInput = document.querySelector('#firstInput')
+    if (imageContainer) {
+        imageContainer.remove();
+        credits.remove();
+        title.remove();
+        userInput.remove();
+    }
 }

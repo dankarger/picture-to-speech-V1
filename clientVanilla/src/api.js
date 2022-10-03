@@ -56,7 +56,7 @@ const getImageSecondOption = (query) => {
             const credits = document.createElement('span');
             title.innerText = `Title : ${query}`;
             title.id = 'title-id';
-            console.log('r',response[0])
+            title.classList.add('title')
             credits.textContent = `Photographer: `;
             photographer.textContent = response[0].photographer;
             credits.appendChild(photographer)

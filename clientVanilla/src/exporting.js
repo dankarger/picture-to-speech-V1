@@ -43,15 +43,19 @@ export const downloadImage = async (src) => {
 }
 
 export const clearCurrenImg = async () => {
-    const title = document.querySelector('#title-id');
+    const title = document.querySelector('.title');
+    const credits = document.querySelector('.credits')
     const currentImage = document.querySelector('#currentImage');
     const imageDiv =  document.querySelector('.container-img');
     const textElement = document.querySelector('.text');
+    const userInput = document.querySelector('#firstInput')
 
     // currentImage.remove();
     imageDiv.remove();
     textElement.textContent = '';
     title.remove();
+    credits.remove();
+    userInput.remove();
 }
 
 export const downloadFromBtn = async ()=>{
