@@ -2,6 +2,7 @@
 <h1  style="text-align: center;">Voice 2 Pic </h1> 
 <a href="https://voice-to-pic.herokuapp.com/">https://voice-to-pic.herokuapp.com</a>
 
+all Images from <a href="https://www.pexels.com/">Pexel.com</a>
  </div>
 
 ## A site to create simple memes with voice commands
