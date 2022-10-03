@@ -52,15 +52,26 @@ const getImageSecondOption = (query) => {
             const image2 = document.createElement('img');
             image2.id = 'currentImage';
             const title = document.createElement('h3');
-            title.innerText = ` picture title: \n${query}`;
+            const photographer = document.createElement('a');
+            const credits = document.createElement('span');
+            title.innerText = `Title : ${query}`;
             title.id = 'title-id';
+            console.log('r',response[0])
+            credits.textContent = `Photographer: `;
+            photographer.textContent = response[0].photographer;
+            credits.appendChild(photographer)
+            credits.classList.add('credits');
+            photographer.href = response[0].photographer_url;
+            photographer.target = '_blank';
             // image2.src = URL.createObjectURL(response);
             if (response[0].src.medium) {
                 image2.src = response[0].src.medium;
 
                 container.append(image2)
                 // container.append(title)  // to use in future game
+
                 pictureTitle.appendChild(title)
+                pictureTitle.appendChild(credits)
             } else {
                 title.innerText = "Error - please repeat";
                 pictureTitle.appendChild(title)

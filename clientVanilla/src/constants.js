@@ -13,6 +13,7 @@ export const commandList = {
     "Download": "Download the picture",
 }
 
+
 export const instructionsConstant = {
     general:["This website use the Web Speech Api and speech recognition",
         "After you press the 'START' button, speak your commands",
