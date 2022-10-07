@@ -23,10 +23,10 @@ Steps:
 | Step 5 | Say "Download" to download the result image.                                    |
 
 At any step you can press the buttons on the left menu :
-- <u> "CONTINUE" or "NEXT"</u>: move to next step. 
-- <u>"GO BACK"</u>: move to previous step. 
-- <u>"DOWNLOAD"</u>: download the image.
-- <u>"RESET"</u>: Start Over.
+- ><u> "CONTINUE" or "NEXT"</u>: move to next step. 
+- ><u>"GO BACK"</u>: move to previous step. 
+- ><u>"DOWNLOAD"</u>: download the image.
+- ><u>"RESET"</u>: Start Over.
 
 ### Packages uses:
 - WebPack
