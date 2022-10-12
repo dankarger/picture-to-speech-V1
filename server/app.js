@@ -3,11 +3,11 @@ require('dotenv').config({ path: path.resolve(__dirname, '../.env') });
 const express = require('express');
 const cors = require('cors');
 const  app = express();
-const PORT = process.env.PORT || 8080 ;
+const PORT = process.env.PORT || 8000 ;
 const pictureRoute = require('./route/picture.route')
 
 let publicPath = path.join(__dirname, '../clientVanilla/dist')
-if(PORT===8080){
+if(PORT===8000){
     publicPath = path.join(__dirname, '../clientVanilla/dist')
 }
 app.use(express.static(publicPath));
