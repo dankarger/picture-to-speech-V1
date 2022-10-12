@@ -2640,8 +2640,8 @@ var stagesDescriptionConstant = {
   0: "Press the start button to begin",
   1: "Say a Picture subject",
   2: "Say the Text",
-  3: "choose Color",
-  4: "stage4- position"
+  3: "choose Color, and after say 'Continue'",
+  4: "stage4- position, and after say 'Download'"
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (stagesDescriptionConstant);
 var commandList = {
@@ -3038,7 +3038,7 @@ var activateStage = /*#__PURE__*/function () {
             }
 
             goBackFunction();
-            _context2.next = 21;
+            _context2.next = 26;
             break;
 
           case 5:
@@ -3051,29 +3051,44 @@ var activateStage = /*#__PURE__*/function () {
             return (0,_exporting__WEBPACK_IMPORTED_MODULE_2__.clearCurrenImg)();
 
           case 8:
-            _context2.next = 21;
+            _context2.next = 26;
             break;
 
           case 10:
             if (!(transcript === ' continue' || transcript === 'next')) {
-              _context2.next = 14;
+              _context2.next = 19;
               break;
             }
 
-            continueFunction();
-            _context2.next = 21;
-            break;
+            if (!(stage === 4)) {
+              _context2.next = 16;
+              break;
+            }
+
+            _context2.next = 14;
+            return (0,_exporting__WEBPACK_IMPORTED_MODULE_2__.downloadFromBtn)();
 
           case 14:
+            _context2.next = 17;
+            break;
+
+          case 16:
+            continueFunction();
+
+          case 17:
+            _context2.next = 26;
+            break;
+
+          case 19:
             if (!(transcript === 'download' || transcript === ' download')) {
-              _context2.next = 21;
+              _context2.next = 26;
               break;
             }
 
-            _context2.next = 17;
+            _context2.next = 22;
             return (0,_exporting__WEBPACK_IMPORTED_MODULE_2__.convertHtmlToCanvas)(currentTitle);
 
-          case 17:
+          case 22:
             // await activateStage(0,"")
             _micBtn = searchForm.querySelector("button");
             stage = 0;
@@ -3082,7 +3097,7 @@ var activateStage = /*#__PURE__*/function () {
 
             searchFormatInput.value = transcript;
 
-          case 21:
+          case 26:
             if (stage === 0) {
               // speak(stagesDescriptionConstant[stage])
               updateStageInformation();
@@ -3102,7 +3117,7 @@ var activateStage = /*#__PURE__*/function () {
               (0,_textGenerator__WEBPACK_IMPORTED_MODULE_1__.textPosition)(transcript.toLowerCase());
             }
 
-          case 22:
+          case 27:
           case "end":
             return _context2.stop();
         }
@@ -11775,4 +11790,4 @@ module.exports = styleTagTransform;
 /******/ 	
 /******/ })()
 ;
-//# sourceMappingURL=bundle98f76dac93a10fdabb52.js.map
+//# sourceMappingURL=bundlefde2551cd7fee8435234.js.map

@@ -2,8 +2,8 @@ const stagesDescriptionConstant = {
     0: "Press the start button to begin",
     1: "Say a Picture subject",
     2: "Say the Text",
-    3: "choose Color",
-    4: "stage4- position",
+    3: "choose Color, and after say 'Continue'",
+    4: "stage4- position, and after say 'Download'",
 }
 export default stagesDescriptionConstant
 

@@ -112,8 +112,8 @@ export const activateStage = async (stage, transcript) => {
     } else if (transcript === 'erase') {
         await clearCurrenImg();
     } else if (transcript === ' continue' || transcript === 'next') {
-
-        continueFunction()
+        if(stage===4) await downloadFromBtn()
+        else continueFunction()
     } else if (transcript === 'download' || transcript === ' download') {
         await convertHtmlToCanvas(currentTitle);
         // await activateStage(0,"")
@@ -148,6 +148,7 @@ export const continueFunction = () => {
         alert("Can't continue without an image")
         return
     }
+
     updateStageInformation();
 }
 export const goBackFunction = () => {
